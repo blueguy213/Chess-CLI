@@ -9,19 +9,6 @@
             "name": "App",
             "request": "launch",
             "mainClass": "goldfish.chess.App"
-        },
-        {
-            "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "App",
-            "request": "launch",
-            "mainClass": "goldfish.chess.App",
-            "projectName": "chessrepo"
         }
     ]
 }
