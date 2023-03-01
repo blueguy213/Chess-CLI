@@ -6,9 +6,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "App",
+            "name": "Chess",
             "request": "launch",
-            "mainClass": "goldfish.chess.App"
+            "mainClass": "goldfish.chess.Chess"
         }
     ]
 }

@@ -1,10 +1,56 @@
+Shreeti Patel and Sree Kommalapati
+
+#### Plan ####
+
+# Split between app logic, board logic, and piece logic
+
+# App Logic: 
+ - Main runtime loop
+ - Prompting
+ - Parsing user-input
+ - Interfacing with the Board object
+
+# Board Logic:
+ - Checking for check(mate)
+ - Validating moves
+ - Storing game state
+ - Drawing board
+
+# Piece Logic:
+- Defining piece behaviour
+- Determining possible moves for each piece
+
+_______________________________________________________________________________________________________
+=======================================================================================================
+_______________________________________________________________________________________________________
+
+# src -> Source Files
+# 
+# # src/main/java/goldfish -> Java files that make the app run
+#  #  
+#  # # src/main/java/goldfish/app -> Contains entrypoint of the application
+#  #
+#  # # src/main/java/goldfish/model -> Contains code for game objects and board logic
+#  #
+#  # # src/main/java/goldfish/model/pieces -> Contains code for piece logic
+#   
+# # # src/test/java/goldfish  -> Java files that test the application
+   #
+   # # src/test/java/goldfish/units -> Unit tests for specific pieces of the application
+
+_______________________________________________________________________________________________________
+=======================================================================================================
+_______________________________________________________________________________________________________
+
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
 
 *We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
 
----
+_______________________________________________________________________________________________________
+=======================================================================================================
+_______________________________________________________________________________________________________
 
 ## Edit a file
 
@@ -17,7 +63,9 @@ You’ll start by editing this README file to learn how to edit a file in Bitbuc
 5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
 6. Go back to the **Source** page.
 
----
+_______________________________________________________________________________________________________
+=======================================================================================================
+_______________________________________________________________________________________________________
 
 ## Create a file
 
@@ -31,7 +79,10 @@ Next, you’ll add a new file to this repository.
 
 Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
 
----
+_______________________________________________________________________________________________________
+=======================================================================================================
+_______________________________________________________________________________________________________
+
 
 ## Clone a repository
 
