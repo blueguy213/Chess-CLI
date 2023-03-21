@@ -17,8 +17,20 @@ public class Pawn extends Piece {
             /*
              * 1. If the pawn is white, it can only move up the board
              */
+            if (this.getColor().equals("w")) {
+                if (y == this.getY() + 1) {
+                    return true;
+                }
+            } else {
+                if (y == this.getY() - 1) {
+                    return true;
+                }
+            }
             return false;
         }
+
+
+        
     
         
 }

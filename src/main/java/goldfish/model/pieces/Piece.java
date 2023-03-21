@@ -23,4 +23,16 @@ public abstract class Piece {
     public String toString() {
         return color + type;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
+    }
 }
