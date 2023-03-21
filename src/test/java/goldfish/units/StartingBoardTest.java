@@ -30,6 +30,7 @@ wR wN wB wQ wK wB wN wR 1
 
 """;
         String startingBoard = (new Board()).toString();
+        System.out.println("Hello World!");
         assertTrue(Integer.toString(startingBoard.compareTo(correctStartingBoard)), startingBoard.equals(correctStartingBoard));
     }
 }
