@@ -13,7 +13,7 @@ public abstract class Piece {
         
     }
 
-    public abstract boolean possibleMoves(int x, int y);
+    public abstract boolean checkMove(int x, int y);
     
     
     /** 

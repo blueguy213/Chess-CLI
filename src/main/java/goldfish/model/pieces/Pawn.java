@@ -6,14 +6,13 @@ public class Pawn extends Piece {
             super(color, "p");
         }
 
-        
         /** 
          * @param x
          * @param y
          * @return boolean
          */
         @Override
-        public boolean possibleMoves(int x, int y) {
+        public boolean checkMove(int x, int y) {
             /*
              * 1. If the pawn is white, it can only move up the board
              */
@@ -28,9 +27,4 @@ public class Pawn extends Piece {
             }
             return false;
         }
-
-
-        
-    
-        
 }
