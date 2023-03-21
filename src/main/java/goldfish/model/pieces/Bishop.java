@@ -5,6 +5,12 @@ public class Bishop extends Piece{
         super(color, "B");
     }
 
+    
+    /** 
+     * @param x
+     * @param y
+     * @return boolean
+     */
     @Override
     public boolean possibleMoves(int x, int y) {
         // TODO Auto-generated method stub

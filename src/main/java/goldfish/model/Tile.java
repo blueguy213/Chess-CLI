@@ -12,6 +12,10 @@ public class Tile {
         piece = null;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     public boolean isOccupied() {
         return isOccupied;
     }

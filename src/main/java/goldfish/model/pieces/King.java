@@ -5,6 +5,12 @@ public class King extends Piece{
         super(color, "K");
     }
 
+    
+    /** 
+     * @param x
+     * @param y
+     * @return boolean
+     */
     @Override
     public boolean possibleMoves(int x, int y) {
         // TODO Auto-generated method stub

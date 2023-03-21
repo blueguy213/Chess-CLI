@@ -5,6 +5,12 @@ public class Knight extends Piece {
         super(color, "N");
     }
 
+    
+    /** 
+     * @param x
+     * @param y
+     * @return boolean
+     */
     @Override
     public boolean possibleMoves(int x, int y) {
         // TODO Auto-generated method stub

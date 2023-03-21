@@ -49,6 +49,10 @@ public class Board {
         }
     }
 
+    
+    /** 
+     * @return Tile[][]
+     */
     public Tile[][] getBoard() {
         return board;
     }
