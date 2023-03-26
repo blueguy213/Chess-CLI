@@ -24,7 +24,17 @@ ________________________________________________________________________________
 _______________________________________________________________________________________________________
 
 # To Do:
-- Implement
+[SP] Implement verifyMove in Rook
+[SP] Implement verifyMove in Bishop
+[SP] Implement verifyMove in Queen
+[SP] Implement verifyMove in Knight
+[SP] Write 5 Tests
+
+[SK] Implement verifyMove in King
+[SK] Check/ Checkmate
+[SK] Input Varifictaion
+[SK] Game Loop
+[SK] Write 5 Tests
 
 _______________________________________________________________________________________________________
 =======================================================================================================
