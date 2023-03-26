@@ -38,4 +38,8 @@ public abstract class Piece {
     public int getX() {
         return x;
     }
+
+    public Board getBoard() {
+        return board;
+    }
 }
