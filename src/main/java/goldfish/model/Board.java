@@ -142,4 +142,26 @@ public class Board {
     public Player getBlack() {
         return black;
     }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    /**
+     * Check if the tile at (x, y) is occupied and return 1 if white, 2 if black, 0 if not occupied
+     * @param x
+     * @param y
+     * @return 
+     */
+    public int checkOccupied(int x, int y) {
+        if (board[x][y].isOccupied()) {
+            if (board[x][y].getPiece().getColor().equals("w")) {
+                return 1;
+            } else {
+                return 2;
+            }
+        } else {
+            return 0;
+        }
+    }
 }
