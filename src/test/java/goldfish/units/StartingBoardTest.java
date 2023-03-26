@@ -13,6 +13,8 @@ public class StartingBoardTest {
     /**
      * Rigorous Test :-)
      */
+
+     
     @Test
     public void printStartingBoard() {
 

@@ -15,5 +15,8 @@ public class Rook extends Piece{
     public boolean possibleMoves(int x, int y) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
+
+
+        // new pos must have same x diff y, or same y diff x
     }
 }

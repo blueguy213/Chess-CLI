@@ -14,5 +14,15 @@ public class Chess
     {
         Board board = new Board();
         System.out.print(board);
+
+        //input varification
+
+        //draw feature
+
+        //game loop
+
+        //input output
+
+        //convert input to internal units (x,y both 0 - 7)
     }
 }
