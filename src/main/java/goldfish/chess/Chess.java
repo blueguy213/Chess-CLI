@@ -17,12 +17,12 @@ public class Chess
         boolean gameRunning = true;
 
         while (gameRunning) {
-            
+
         }
 
         System.out.print(board);
 
-        //input varification
+        //input varification 
 
         //draw feature
 
@@ -30,6 +30,6 @@ public class Chess
 
         //input output
 
-        //convert input to internal units (x,y both 0 - 7)
+        //convert input to internal units (x,y both 0 - 7) (a)
     }
 }

@@ -13,7 +13,7 @@ public class Pawn extends Piece {
          * @return boolean
          */
         @Override
-        public boolean checkMove(int x, int y) {
+        public boolean verifyMove(int x, int y) {
             if (x != this.getX()) {
                 return false;
             } else {

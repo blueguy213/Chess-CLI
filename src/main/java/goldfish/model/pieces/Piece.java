@@ -12,7 +12,7 @@ public abstract class Piece {
         this.type = type;
     }
 
-    public abstract boolean checkMove(int x, int y);
+    public abstract boolean verifyMove(int x, int y);
     
     /** 
      * @return String
