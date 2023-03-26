@@ -10,10 +10,9 @@ public class Chess
     /** 
      * @param args
      */
-    public static void main( String[] args )
-    {
+    public static void main(String[] args) {
+        // Set up game variables
         Board board = new Board();
-
         boolean gameRunning = true;
 
         while (gameRunning) {

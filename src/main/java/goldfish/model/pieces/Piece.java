@@ -1,5 +1,7 @@
 package goldfish.model.pieces;
 
+import goldfish.model.Board;
+
 public abstract class Piece {
 
     private String color; // w = white, b = black
@@ -7,13 +9,16 @@ public abstract class Piece {
     private int x; // x coordinate
     private int y; // y coordinate
 
-    public Piece(String color, String type) {
+    private Board board;
+
+    public Piece(String color, String type, Board board) {
         this.color = color;
         this.type = type;
+        this.board = board;
     }
 
     public abstract boolean verifyMove(int x, int y);
-    
+
     /** 
      * @return String
      */

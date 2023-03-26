@@ -1,10 +1,11 @@
 package goldfish.model.pieces;
 
+import goldfish.model.Board;
 
 public class Pawn extends Piece {
     
-        public Pawn(String color) {
-            super(color, "p");
+        public Pawn(String color, Board board) {
+            super(color, "p", board);
         }
 
         /** 

@@ -1,8 +1,9 @@
 package goldfish.model.pieces;
+import goldfish.model.Board;
 
 public class Knight extends Piece {
-    public Knight(String color) {
-        super(color, "N");
+    public Knight(String color, Board board) {
+        super(color, "N", board);
     }
 
     

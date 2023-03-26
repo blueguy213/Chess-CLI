@@ -43,7 +43,9 @@ public class Player {
 
     // Check if the player is in check (if the opponent's pieces can attack the player's king)
     public boolean check() {
-        // TODO: Implement check
+        /*
+        TODO: Implement check: Loop through opponent's pieces and check if they can attack the player's king (use verifyMove() by passing in the king's coordinates to each opponent piece)
+        */ 
         return false;
     }
 
@@ -52,5 +54,7 @@ public class Player {
         // TODO: Implement checkmate
         return false;
     }
+
+    
 
 }

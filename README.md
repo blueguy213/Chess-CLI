@@ -11,11 +11,12 @@ Shreeti Patel and Sree Kommalapati
  - Interfacing with the Board object
 
 # Board Logic:
- - Checking for check(mate)
- - Validating moves
  - Storing game state
  - Drawing board
 
+# Player Logic:
+ - Checking for check(mate)
+ - Validating moves
 # Piece Logic:
 - Defining piece behaviour
 - Determining possible moves for each piece
