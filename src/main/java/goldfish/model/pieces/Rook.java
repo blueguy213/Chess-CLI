@@ -1,8 +1,10 @@
 package goldfish.model.pieces;
+import goldfish.model.Board;
+
 
 public class Rook extends Piece{
-    public Rook(String color) {
-        super(color, "R");
+    public Rook(String color, Board board) {
+        super(color, "R", board);
     }
 
 //    0  1  2  3  4  5  6  7 

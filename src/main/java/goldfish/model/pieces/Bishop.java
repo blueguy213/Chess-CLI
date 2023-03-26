@@ -1,8 +1,10 @@
 package goldfish.model.pieces;
 
+import goldfish.model.Board;
+
 public class Bishop extends Piece{
-    public Bishop(String color) {
-        super(color, "B");
+    public Bishop(String color, Board board) {
+        super(color, "B", board);
     }
 
     

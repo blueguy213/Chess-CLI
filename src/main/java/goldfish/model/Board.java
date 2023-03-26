@@ -24,32 +24,32 @@ public class Board {
             for (int j = 0; j < board[i].length; j++) {
                 board[i][j] = new Tile();
                 if (i == 1) {
-                    board[i][j].setPiece(new Pawn("b"));
+                    board[i][j].setPiece(new Pawn("b", this));
                 } else if (i == 6) {
-                    board[i][j].setPiece(new Pawn("w"));
+                    board[i][j].setPiece(new Pawn("w", this));
                 } else if (i == 0) {
                     if (j == 0 || j == 7) {
-                        board[i][j].setPiece(new Rook("b"));
+                        board[i][j].setPiece(new Rook("b", this));
                     } else if (j == 1 || j == 6) {
-                        board[i][j].setPiece(new Knight("b"));
+                        board[i][j].setPiece(new Knight("b", this));
                     } else if (j == 2 || j == 5) {
-                        board[i][j].setPiece(new Bishop("b"));
+                        board[i][j].setPiece(new Bishop("b", this));
                     } else if (j == 3) {
-                        board[i][j].setPiece(new Queen("b"));
+                        board[i][j].setPiece(new Queen("b", this));
                     } else if (j == 4) {
-                        board[i][j].setPiece(new King("b"));
+                        board[i][j].setPiece(new King("b", this));
                     }
                 } else if (i == 7) {
                     if (j == 0 || j == 7) {
-                        board[i][j].setPiece(new Rook("w"));
+                        board[i][j].setPiece(new Rook("w", this));
                     } else if (j == 1 || j == 6) {
-                        board[i][j].setPiece(new Knight("w"));
+                        board[i][j].setPiece(new Knight("w", this));
                     } else if (j == 2 || j == 5) {
-                        board[i][j].setPiece(new Bishop("w"));
+                        board[i][j].setPiece(new Bishop("w", this));
                     } else if (j == 3) {
-                        board[i][j].setPiece(new Queen("w"));
+                        board[i][j].setPiece(new Queen("w", this));
                     } else if (j == 4) {
-                        board[i][j].setPiece(new King("w"));
+                        board[i][j].setPiece(new King("w", this));
                     }
                 }
             }
@@ -95,13 +95,10 @@ public class Board {
                 (Pawn) board[1][7].getPiece()
             }
         );
-
         // Set turn to white
         turn = 0;
-
     }
 
-    
     /** 
      * @return Tile[][]
      */
@@ -144,5 +141,27 @@ public class Board {
 
     public Player getBlack() {
         return black;
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    /**
+     * Check if the tile at (x, y) is occupied and return 1 if white, 2 if black, 0 if not occupied
+     * @param x
+     * @param y
+     * @return 
+     */
+    public int checkOccupied(int x, int y) {
+        if (board[x][y].isOccupied()) {
+            if (board[x][y].getPiece().getColor().equals("w")) {
+                return 1;
+            } else {
+                return 2;
+            }
+        } else {
+            return 0;
+        }
     }
 }

@@ -11,11 +11,12 @@ Shreeti Patel and Sree Kommalapati
  - Interfacing with the Board object
 
 # Board Logic:
- - Checking for check(mate)
- - Validating moves
  - Storing game state
  - Drawing board
 
+# Player Logic:
+ - Checking for check(mate)
+ - Validating moves
 # Piece Logic:
 - Defining piece behaviour
 - Determining possible moves for each piece
@@ -62,7 +63,9 @@ ________________________________________________________________________________
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+*We recommend that you open this README in another tab as you perform the tasks below. 
+You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. 
+Open the video in a new tab to avoid leaving Bitbucket.*
 
 _______________________________________________________________________________________________________
 =======================================================================================================
