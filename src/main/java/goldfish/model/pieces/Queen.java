@@ -12,7 +12,7 @@ public class Queen extends Piece{
      * @return boolean
      */
     @Override
-    public boolean possibleMoves(int x, int y) {
+    public boolean checkMove(int x, int y) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
     }

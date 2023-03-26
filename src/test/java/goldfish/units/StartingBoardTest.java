@@ -1,5 +1,6 @@
 package goldfish.units;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -31,8 +32,12 @@ wR wN wB wQ wK wB wN wR 1
  a  b  c  d  e  f  g  h
 
 """;
-        String startingBoard = (new Board()).toString();
+        Board startingBoard = new Board();
         System.out.println("Hello World!");
-        assertTrue(Integer.toString(startingBoard.compareTo(correctStartingBoard)), startingBoard.equals(correctStartingBoard));
+        
+        // Check if the starting board is correct
+        assertEquals(startingBoard.toString(), correctStartingBoard);
+
+        
     }
 }

@@ -13,6 +13,13 @@ public class Chess
     public static void main( String[] args )
     {
         Board board = new Board();
+
+        boolean gameRunning = true;
+
+        while (gameRunning) {
+            
+        }
+
         System.out.print(board);
 
         //input varification

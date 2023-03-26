@@ -9,7 +9,14 @@ import goldfish.model.pieces.Rook;
 
 public class Board {
     
+    // The board is a 2D array of tiles (each tile has a piece on it)
     private Tile[][] board;
+    // The players
+    private Player white;
+    private Player black;
+    // The turn (0 = white, 1 = black, -1 = game over)
+    private int turn;
+    
 
     public Board() {
         board = new Tile[8][8];
@@ -47,6 +54,51 @@ public class Board {
                 }
             }
         }
+
+        // Instantiate players using pieces from board
+        white = new Player(
+            "w",
+            black,
+            (King) board[7][4].getPiece(), 
+            (Queen) board[7][3].getPiece(),
+            new Rook[] { (Rook) board[7][0].getPiece(), (Rook) board[7][7].getPiece() },
+            new Bishop[] { (Bishop) board[7][2].getPiece(), (Bishop) board[7][5].getPiece() },
+            new Knight[] { (Knight) board[7][1].getPiece(), (Knight) board[7][6].getPiece() },
+            new Pawn[] { 
+                (Pawn) board[6][0].getPiece(),
+                (Pawn) board[6][1].getPiece(),
+                (Pawn) board[6][2].getPiece(),
+                (Pawn) board[6][3].getPiece(),
+                (Pawn) board[6][4].getPiece(),
+                (Pawn) board[6][5].getPiece(),
+                (Pawn) board[6][6].getPiece(),
+                (Pawn) board[6][7].getPiece()
+            }
+        );
+
+        black = new Player(
+            "b",
+            white,
+            (King) board[0][4].getPiece(), 
+            (Queen) board[0][3].getPiece(),
+            new Rook[] { (Rook) board[0][0].getPiece(), (Rook) board[0][7].getPiece() },
+            new Bishop[] { (Bishop) board[0][2].getPiece(), (Bishop) board[0][5].getPiece() },
+            new Knight[] { (Knight) board[0][1].getPiece(), (Knight) board[0][6].getPiece() },
+            new Pawn[] { 
+                (Pawn) board[1][0].getPiece(),
+                (Pawn) board[1][1].getPiece(),
+                (Pawn) board[1][2].getPiece(),
+                (Pawn) board[1][3].getPiece(),
+                (Pawn) board[1][4].getPiece(),
+                (Pawn) board[1][5].getPiece(),
+                (Pawn) board[1][6].getPiece(),
+                (Pawn) board[1][7].getPiece()
+            }
+        );
+
+        // Set turn to white
+        turn = 0;
+
     }
 
     
@@ -57,6 +109,7 @@ public class Board {
         return board;
     }
 
+    // Move the piece at (x, y) to (newX, newY)
     public void movePiece(int x, int y, int newX, int newY) {
         board[newX][newY].setPiece(board[x][y].getPiece());
         board[x][y].setPiece(null);
@@ -82,5 +135,14 @@ public class Board {
         }
         boardString += " a  b  c  d  e  f  g  h\n\n";
         return boardString;
+    }
+
+    
+    public Player getWhite() {
+        return white;
+    }
+
+    public Player getBlack() {
+        return black;
     }
 }
