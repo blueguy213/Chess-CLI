@@ -40,37 +40,52 @@ public class Rook extends Piece{
             return false;
         } 
         // check for pieces in middle of path
+
         // check up/down:
         // if x is same and y is diff, check each tile from (x, curr y) to (x, new y) by going up if new y < curr y  or down if new y > curr y
         if ((destX == currX) && (destY != currY)) {
             if (currY > destY){ // going up
                 for(int r = currY; r >= destY; r--) { // for each row index from currY to destY going up
-                    // if (currX, r) has piece { return false }
+                    if (getBoard().isOccupied(currX,r) != 0){ // if tile is occuipied return false
+                        return false;
+                    }
                 }
             }
             if (currY < destY){ //doing down
                 for(int r = currY; r <= destY; r++) { // for each row index from currY to destY going up
-                    // if (currX, r) has piece { return false }
+                    if (getBoard().isOccupied(currX,r) != 0){ // if tile is occuipied return false
+                        return false;
+                    }
                 }
 
             }   
         }
+
        //check left/right:
        // if y is same and x is diff, check each tile from ( curr x,  y) to ( new x, y) by going left if new x < curr x  or right if new x > curr x
         if ((destY == currY) && (destX != currX)) {
             if (currX > destX){ // going left
                 for(int c = currX; c >= destX; c--) { // for each row index from currX to destx going left
-                    // if (c, currY) has piece { return false }
+                    if (getBoard().isOccupied(c, currY) != 0){ // if tile is occuipied return false
+                        return false;
+                    }
                 }
             }
             if (currX < destX){ //doing right
                 for(int c = currX; c <= destX; c++) { // for each row index from currY to destY going up
-                    // if (c ,currY) has piece { return false }
+                    if (getBoard().isOccupied(c, currY) != 0){ // if tile is occuipied return false
+                        return false;
+                    }
                 }
-
             }   
          }
-        
+
+        // if destination has same color piece as --> false 
+        if (((getBoard().isOccupied(destX, destY)) != 0) && // dest tile is not empty and colors of curr and next tiles are same 
+                (getBoard().isOccupied(currX, currY) == getBoard().isOccupied(destX, destY))){
+            return false;
+        }
+      
         return true;
         // new pos must have same x diff y, or same y diff x
         // 

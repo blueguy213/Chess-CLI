@@ -17,7 +17,7 @@ public class Bishop extends Piece{
     public boolean verifyMove(int x, int y) {
         // TODO Auto-generated method stub
         // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
-
+        return false;
         
     }
 }
