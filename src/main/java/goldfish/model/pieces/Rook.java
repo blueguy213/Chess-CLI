@@ -30,7 +30,7 @@ public class Rook extends Piece {
      * @return boolean
      */
     @Override
-    public boolean verifyMove(int destX, int destY) {
+    public boolean verifyMove(int destX, int destY, boolean real) {
         // TODO Auto-generated method stub
         // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
 

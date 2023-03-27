@@ -49,8 +49,8 @@ SK:
 [X] Game Loop
 [SK] Pawn Promotion
 [X] Pawn can move 2 squares from start
-[SK] En passant
-[SK] Test Game Loop
+[X] En passant
+[X] Test Game Loop
 [SK] Test Input Verification
 [SK] Test verifyMove in King
 [SK] Test verifyCastle in King

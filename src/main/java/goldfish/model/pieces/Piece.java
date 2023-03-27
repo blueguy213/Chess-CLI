@@ -136,7 +136,10 @@ public abstract class Piece {
     }
 
     public void movement(int turn) {
-        turnMoved = turn;
+        if (turnMoved == -1) {
+            turnMoved = turn;
+        }
+        System.out.println(this.toString() + " moved on " + turnMoved);
     }
 
     /**
@@ -175,5 +178,5 @@ public abstract class Piece {
      * @param x x coordinate of the piece
      * @param y y coordinate of the piece
      */
-    public abstract boolean verifyMove(int x, int y);
+    public abstract boolean verifyMove(int x, int y, boolean real);
 }

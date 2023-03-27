@@ -17,7 +17,7 @@ public class Queen extends Piece{
      * @return boolean
      */
     @Override
-    public boolean verifyMove(int destX, int destY) {
+    public boolean verifyMove(int destX, int destY, boolean real) {
         // TODO Auto-generated method stub
         // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
 
@@ -34,6 +34,6 @@ public class Queen extends Piece{
         qBishop.setX(currX);
         qBishop.setY(currY);
 
-        return (qRook.verifyMove(destX, destY) || qBishop.verifyMove(destX, destY));
+        return (qRook.verifyMove(destX, destY, real) || qBishop.verifyMove(destX, destY, real));
     }
 }

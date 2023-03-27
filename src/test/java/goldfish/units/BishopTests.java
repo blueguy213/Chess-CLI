@@ -42,10 +42,10 @@ public class BishopTests {
          System.out.print(startingBoard.toString());
       
  
-         assertEquals(testBishop.verifyMove(1, 2), true);
-         assertEquals(testBishop.verifyMove(4, 3), true);
-         assertEquals(testBishop.verifyMove(4, 5), true);
-         assertEquals(testBishop.verifyMove(2, 5), true);
+         assertEquals(testBishop.verifyMove(1, 2, false), true);
+         assertEquals(testBishop.verifyMove(4, 3, false), true);
+         assertEquals(testBishop.verifyMove(4, 5, false), true);
+         assertEquals(testBishop.verifyMove(2, 5, false), true);
         
  
          
@@ -83,10 +83,10 @@ public class BishopTests {
  
  
          System.out.println("X is " + testBishop.getX() + " , Y is " + testBishop.getY());
-         assertEquals(testBishop.verifyMove(3,2),false);
-         assertEquals(testBishop.verifyMove(3,5),false);
-         assertEquals(testBishop.verifyMove(6,4),false);
-         assertEquals(testBishop.verifyMove(1,4),false);
+         assertEquals(testBishop.verifyMove(3,2, false),false);
+         assertEquals(testBishop.verifyMove(3,5, false),false);
+         assertEquals(testBishop.verifyMove(6,4, false),false);
+         assertEquals(testBishop.verifyMove(1,4, false),false);
          
      
      }
@@ -117,10 +117,10 @@ public class BishopTests {
        
 
         System.out.println("X is " + testBishop.getX() + " , Y is " + testBishop.getY());
-        assertEquals(testBishop.verifyMove(3,0),false);
-        assertEquals(testBishop.verifyMove(3,6),false);
-        assertEquals(testBishop.verifyMove(6,4),false);
-        assertEquals(testBishop.verifyMove(0,4),false);
+        assertEquals(testBishop.verifyMove(3,0, false),false);
+        assertEquals(testBishop.verifyMove(3,6, false),false);
+        assertEquals(testBishop.verifyMove(6,4, false),false);
+        assertEquals(testBishop.verifyMove(0,4, false),false);
         
     
     }

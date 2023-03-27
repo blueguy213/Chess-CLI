@@ -42,10 +42,10 @@ public class QueenTests {
          System.out.print(startingBoard.toString());
       
  
-         assertEquals(testQueen.verifyMove(1, 2), true);
-         assertEquals(testQueen.verifyMove(4, 3), true);
-         assertEquals(testQueen.verifyMove(4, 5), true);
-         assertEquals(testQueen.verifyMove(2, 5), true);
+         assertEquals(testQueen.verifyMove(1, 2, false), true);
+         assertEquals(testQueen.verifyMove(4, 3, false), true);
+         assertEquals(testQueen.verifyMove(4, 5, false), true);
+         assertEquals(testQueen.verifyMove(2, 5, false), true);
         
  
          
@@ -83,10 +83,10 @@ public class QueenTests {
  
  
          System.out.println("X is " + testQueen.getX() + " , Y is " + testQueen.getY());
-         assertEquals(testQueen.verifyMove(3,2),true);
-         assertEquals(testQueen.verifyMove(3,5),true);
-         assertEquals(testQueen.verifyMove(6,4),true);
-         assertEquals(testQueen.verifyMove(1,4),true);
+         assertEquals(testQueen.verifyMove(3,2, false),true);
+         assertEquals(testQueen.verifyMove(3,5, false),true);
+         assertEquals(testQueen.verifyMove(6,4, false),true);
+         assertEquals(testQueen.verifyMove(1,4, false),true);
          
      
      }
@@ -117,10 +117,10 @@ public class QueenTests {
        
 
         System.out.println("X is " + testQueen.getX() + " , Y is " + testQueen.getY());
-        assertEquals(testQueen.verifyMove(3,0),false);
-        assertEquals(testQueen.verifyMove(3,6),false);
-        assertEquals(testQueen.verifyMove(6,4),false);
-        assertEquals(testQueen.verifyMove(0,4),false);
+        assertEquals(testQueen.verifyMove(3,0, false),false);
+        assertEquals(testQueen.verifyMove(3,6, false),false);
+        assertEquals(testQueen.verifyMove(6,4, false),false);
+        assertEquals(testQueen.verifyMove(0,4, false),false);
         
     
     }

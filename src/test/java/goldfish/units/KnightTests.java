@@ -42,10 +42,10 @@ public class KnightTests {
          System.out.print(startingBoard.toString());
       
  
-         assertEquals(testKnight.verifyMove(1, 2), false);
-         assertEquals(testKnight.verifyMove(4, 3), false);
-         assertEquals(testKnight.verifyMove(4, 5), false);
-         assertEquals(testKnight.verifyMove(2, 5), false);
+         assertEquals(testKnight.verifyMove(1, 2, false), false);
+         assertEquals(testKnight.verifyMove(4, 3, false), false);
+         assertEquals(testKnight.verifyMove(4, 5, false), false);
+         assertEquals(testKnight.verifyMove(2, 5, false), false);
         
  
          
@@ -83,10 +83,10 @@ public class KnightTests {
  
  
          System.out.println("X is " + testKnight.getX() + " , Y is " + testKnight.getY());
-         assertEquals(testKnight.verifyMove(3,2),false);
-         assertEquals(testKnight.verifyMove(3,5),false);
-         assertEquals(testKnight.verifyMove(4,4),false);
-         assertEquals(testKnight.verifyMove(1,4),false);
+         assertEquals(testKnight.verifyMove(3,2, false),false);
+         assertEquals(testKnight.verifyMove(3,5, false),false);
+         assertEquals(testKnight.verifyMove(4,4, false),false);
+         assertEquals(testKnight.verifyMove(1,4, false),false);
          
      
      }
@@ -123,14 +123,14 @@ public class KnightTests {
  
  
          System.out.println("X is " + testKnight.getX() + " , Y is " + testKnight.getY());
-         assertEquals(testKnight.verifyMove(2,2),true);
-         assertEquals(testKnight.verifyMove(4,2),true);
-         assertEquals(testKnight.verifyMove(5,3),true);
-         assertEquals(testKnight.verifyMove(5,5),true);
-         assertEquals(testKnight.verifyMove(2,6),true);
-         assertEquals(testKnight.verifyMove(4,6),true);
-         assertEquals(testKnight.verifyMove(1,5),true);
-         assertEquals(testKnight.verifyMove(1,5),true);
+         assertEquals(testKnight.verifyMove(2,2, false),true);
+         assertEquals(testKnight.verifyMove(4,2, false),true);
+         assertEquals(testKnight.verifyMove(5,3, false),true);
+         assertEquals(testKnight.verifyMove(5,5, false),true);
+         assertEquals(testKnight.verifyMove(2,6, false),true);
+         assertEquals(testKnight.verifyMove(4,6, false),true);
+         assertEquals(testKnight.verifyMove(1,5, false),true);
+         assertEquals(testKnight.verifyMove(1,5, false),true);
          
          
      
@@ -165,10 +165,10 @@ public class KnightTests {
        
 
         System.out.println("X is " + testKnight.getX() + " , Y is " + testKnight.getY());
-        assertEquals(testKnight.verifyMove(3,0),false);
-        assertEquals(testKnight.verifyMove(3,6),false);
-        assertEquals(testKnight.verifyMove(6,4),false);
-        assertEquals(testKnight.verifyMove(0,4),false);
+        assertEquals(testKnight.verifyMove(3,0, false),false);
+        assertEquals(testKnight.verifyMove(3,6, false),false);
+        assertEquals(testKnight.verifyMove(6,4, false),false);
+        assertEquals(testKnight.verifyMove(0,4, false),false);
         
     
     }
