@@ -7,22 +7,6 @@ public class Bishop extends Piece{
         super(color, "B", board);
     }
 
-    
-    /** 
-     * @param x
-     * @param y
-     * @return boolean
-     */
-    @Override
-    public boolean verifyMove(int destX, int destY) {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
- 
-
-
-        int currX = this.getX();
-        int currY = this.getY();
-
 //    0  1  2  3  4  5  6  7 
 // 0  bR bN bB bQ bK bB bN bR 8
 // 1  bp bp bp bp bp bp bp bp 7
@@ -34,7 +18,21 @@ public class Bishop extends Piece{
 // 7  wR wN wB wQ wK wB wN wR 1
 //     a  b  c  d  e  f  g  h
         
-        
+ 
+    /** 
+     * @param x
+     * @param y
+     * @return boolean
+     */
+    @Override
+    public boolean verifyMove(int destX, int destY) {
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
+
+        int currX = this.getX();
+        int currY = this.getY();
+
+       
         // See if move is valid move for a bishop
         // can move diagonal 
         if (Math.abs(currY - destY) != Math.abs(currX - destX)) { // checks is dest is not in diagonal of curr
