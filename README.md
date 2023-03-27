@@ -25,6 +25,7 @@ ________________________________________________________________________________
 _______________________________________________________________________________________________________
 
 # To Do:
+SP:
 [X] Implement verifyMove in Rook
 [X] Implement verifyMove in Bishop
 [X] Implement verifyMove in Queen
@@ -37,6 +38,7 @@ ________________________________________________________________________________
 [SP] In Tile.setPiece() method should we update the coridnates of piece
 [X] In Piece should we add setX() and setY() methods
 
+SK:
 [SK] Implement verifyMove in King
 [SK] Check/ Checkmate
 [SK] Input Varifictaion
