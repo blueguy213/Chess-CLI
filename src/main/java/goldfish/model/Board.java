@@ -108,10 +108,23 @@ public class Board {
 
     // Move the piece at (x, y) to (newX, newY)
     public void movePiece(int x, int y, int newX, int newY) {
-        board[newX][newY].setPiece(board[x][y].getPiece());
-        board[x][y].setPiece(null);
+        board[newY][newX].setPiece(board[y][x].getPiece());
+        board[y][x].setPiece(null);
     }
 
+    /**
+     * Prints the board in the format described in the assignment
+     * bR bN bB bQ bK bB bN bR 8
+     * bp bp bp bp bp bp bp bp 7
+     *    ##    ##    ##    ## 6
+     * ##    ##    ##    ##    5
+     *    ##    ##    ##    ## 4
+     * ##    ##    ##    ##    3 
+     * wp wp wp wp wp wp wp wp 2
+     * wR wN wB wQ wK wB wN wR 1
+     *  a  b  c  d  e  f  g  h
+* @return String
+     */
     @Override
     public String toString() {
         String boardString = "\n";
@@ -154,8 +167,8 @@ public class Board {
      * @return 
      */
     public int checkOccupied(int x, int y) {
-        if (board[x][y].isOccupied()) {
-            if (board[x][y].getPiece().getColor().equals("w")) {
+        if (board[y][x].isOccupied()) {
+            if (board[y][x].getPiece().getColor().equals("w")) {
                 return 1;
             } else {
                 return 2;

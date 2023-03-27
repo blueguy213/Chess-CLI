@@ -20,6 +20,7 @@ public abstract class Piece {
     public abstract boolean verifyMove(int x, int y);
 
     /** 
+     * Override toString method
      * @return String
      */
     @Override
@@ -27,6 +28,10 @@ public abstract class Piece {
         return color + type;
     }
 
+    /**
+     * Gets 
+     * @return String
+     */
     public String getColor() {
         return color;
     }
