@@ -8,7 +8,7 @@ public abstract class Piece {
     // w = white, b = black
     private String color;
 
-    // P = pawn, R = rook, N = knight, B = bishop, Q = queen, K = king
+    // p = pawn, R = rook, N = knight, B = bishop, Q = queen, K = king
     private String type;
 
     private int x; 
@@ -20,10 +20,13 @@ public abstract class Piece {
     // Player the piece belongs to
     private Player player;
 
+    // Flag to see if the piece has moved yet (used for castling and en passant and pawn double move)
+    private boolean hasMoved;
+
     /**
      * Superconstructor for objects that inherit the abstract Piece class.
      * @param color Color of the piece: w = white, b = black
-     * @param type The type of piece to create: P = pawn, R = rook, N = knight, B = bishop, Q = queen, K = king
+     * @param type The type of piece to create: p = pawn, R = rook, N = knight, B = bishop, Q = queen, K = king
      * @param board the board the piece is on
      */
     public Piece(String color, String type, Board board) {
@@ -50,7 +53,7 @@ public abstract class Piece {
 
     /** 
      * Override toString method to return the color and type of the piece
-     * @return String
+     * @return format is aN where a is the color (w = white, b = black) and N is the type (p = pawn, R = rook, N = knight, B = bishop, Q = queen, K = king)
      */
     @Override
     public String toString() {
@@ -75,11 +78,34 @@ public abstract class Piece {
 
     /**
      * Gets the x coordinate of the piece.
-     * 
      * @return int
      */
     public int getX() {
         return x;
+    }
+
+    /**
+     * Gets the player that owns this piece.
+     * @return Player
+     */
+    public Player getPlayer() {
+        return player;
+    }
+
+    /**
+     * Gets if the piece has moved yet.
+     * @return True if the piece has moved, false if not.
+     */
+    public boolean getHasMoved() {
+        return hasMoved;
+    }
+
+    /**
+     * Gets the gameboard
+     * @return The board that the piece is on.
+     */
+    public Board getBoard() {
+        return board;
     }
 
     /**
@@ -99,11 +125,15 @@ public abstract class Piece {
     }
 
     /**
-     * Gets the board that the piece is on.
+     * Sets the player that owns this piece.
      * @param player
      */
-    public Board getBoard() {
-        return board;
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void movement() {
+        hasMoved = true;
     }
 
     /**
@@ -113,6 +143,9 @@ public abstract class Piece {
      * @return
      */
     public boolean isEnemyAttacking(int x, int y) {
+        System.err.println(player);
         return player.getOpponent().isAttacking(x, y);
     }
+
+
 }

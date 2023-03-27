@@ -10,9 +10,7 @@ import goldfish.model.pieces.Rook;
 
 /**
  * The board class: Has a 2D array of tiles, two players (white and black), and a turn.
- * 
  * @author Goldfish
- *
  */
 public class Board {
     
@@ -110,23 +108,30 @@ public class Board {
     }
 
     /** 
+     * Gets the 2D array of tiles the board has
      * @return Tile[][]
      */
     public Tile[][] getTiles() {
         return tiles;
     }
 
-    // Move the piece at (x, y) to (newX, newY)
+
+    /**
+     * Move the piece at (x, y) to (newX, newY)
+     * @return Player
+     */
     public void movePiece(int x, int y, int newX, int newY) {
-        //if (tiles[x][y].getPiece() != null){
-            tiles[newY][newX].setPiece(tiles[y][x].getPiece());
-            tiles[y][x].setPiece(null);
-       // }
-        
+        boolean isPieceNotifiedByMovement = tiles[y][x].getPiece().toString().charAt(1) == 'p' || tiles[y][x].getPiece().toString().charAt(1) == 'K' || tiles[y][x].getPiece().toString().charAt(1) == 'R';
+        if (isPieceNotifiedByMovement) {
+            tiles[y][x].getPiece().movement();;
+        }
+        tiles[newY][newX].setPiece(tiles[y][x].getPiece());
+        tiles[y][x].setPiece(null);
+        incrementTurn();
     }
 
     /**
-     * Prints the tiles in the format described in the assignment
+     * Overrides toString to pring the board with the tiles and pieces in the format described by the assignment
      * @return String
      */
     @Override
@@ -151,24 +156,35 @@ public class Board {
         return tilesString;
     }
 
-    
+    /**
+     * Gets the white player object for the board
+     * @return White Player
+     */
     public Player getWhite() {
         return white;
     }
 
+    /**
+     * Gets the black player object for the board
+     * @return Black Player
+     */
     public Player getBlack() {
         return black;
     }
 
+    /**
+     * Gets the current turn
+     * @return 0 if white, 1 if black
+     */
     public int getTurn() {
         return turn;
     }
 
     /**
-     * Check if the tile at (x, y) is occupied and return 1 if white, 2 if black, 0 if not occupied
-     * @param x
-     * @param y
-     * @return 
+     * Check if the tile at (x, y) is occupied and by whom
+     * @param x x location of the tile
+     * @param y y location of the tile
+     * @return 1 if white, 2 if black, 0 if not occupied
      */
     public int isOccupied(int x, int y) {
         if (tiles[y][x].isOccupied()) {
@@ -182,11 +198,27 @@ public class Board {
         }
     }
 
+    /**
+     * Gets the piece at a given location from the tiles array
+     * @param x x location of the desired piece
+     * @param y y location of the desired piece
+     * @return The piece at (x, y)
+     */
     public Piece getPiece(int x, int y) {
         return tiles[y][x].getPiece();
     }
 
+    /**
+     * Flips turn from white to black or vice versa
+     */
     public void incrementTurn() {
-        turn++;
+        turn = (turn + 1) % 2;
+    }
+
+    /**
+     * Ends the game by setting turn to -1 as a signal for the game loop to end
+     */
+    public void gameOver() {
+        turn = -1;
     }
 }

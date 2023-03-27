@@ -8,6 +8,10 @@ import goldfish.model.pieces.Knight;
 import goldfish.model.pieces.Pawn;
 import goldfish.model.pieces.Piece;
 
+/**
+ * The Player class represents a player in the game of chess
+ * @author Goldfish
+ */
 public class Player {
 
     private Player opponent;
@@ -22,15 +26,40 @@ public class Player {
     private Pawn pawns[];
     private Piece nonKingPieces[];
 
+    /**
+     * Constructor for the player
+     * @param color the color of the player
+     * @param opponent the opponent of the player
+     * @param king the king of the player
+     * @param queen the queen of the player
+     * @param rooks the rooks of the player
+     * @param bishops the bishops of the player
+     * @param knights the knights of the player
+     * @param pawns the pawns of the player
+     */
     public Player(String color, Player opponent,King king, Queen queen, Rook[] rooks, Bishop[] bishops, Knight[] knights, Pawn[] pawns) {
         this.color = color;
         this.opponent = opponent;
         this.king = king;
+        this.king.setPlayer(this);
         this.queen = queen;
+        this.queen.setPlayer(this);
         this.rooks = rooks;
+        for (Rook rook : rooks) {
+            rook.setPlayer(this);
+        }
         this.bishops = bishops;
+        for (Bishop bishop : bishops) {
+            bishop.setPlayer(this);
+        }
         this.knights = knights;
+        for (Knight knight : knights) {
+            knight.setPlayer(this);
+        }
         this.pawns = pawns;
+        for (Pawn pawn : pawns) {
+            pawn.setPlayer(this);
+        }
         this.nonKingPieces = new Piece[] {
             queen,
             rooks[0], rooks[1],
@@ -40,41 +69,82 @@ public class Player {
         };
     }
 
+    /**
+     * Get the color of the player
+     * @return "w" if the player is white, "b" if the player is black
+     */
     public String getColor() {
         return color;
     }
 
-
+    /**
+     * Return the player's king
+     * @return return the player's king
+     */
     public King getKing() {
         return king;
     }
 
+    /**
+     * Return the player's queen
+     * @return return the player's queen
+     */
+    public Queen getQueen() {
+        return queen;
+    }
+
+    /**
+     * Return the player's rooks
+     * @return {Rook 1 (starts on a1), Rook 2 (starts on h1)}
+     */
     public Rook[] getRooks() {
         return rooks;
     }
 
+    /**
+     * Return the player's bishops
+     * @return {Bishop 1 (starts on c1), Bishop 2 (starts on f1)}
+     */
     public Bishop[] getBishops() {
         return bishops;
     }
 
+    /**
+     * Return the player's knights
+     * @return {Knight 1 (starts on b1), Knight 2 (starts on g1)}
+     */
     public Knight[] getKnights() {
         return knights;
     }
 
+    /**
+     * Return the player's pawns
+     * @return {Pawn 1 (starts on a2), Pawn 2 (starts on b2), ..., Pawn 8 (starts on h2)}
+     */
     public Pawn[] getPawns() {
         return pawns;
     }
 
+    /**
+     * Return the opponent of the player
+     * @return The White player if called on the Black player, and vice versa
+     */
     public Player getOpponent() {
         return opponent;
     }
 
-    // Check if the player is in check (if the opponent's pieces can attack the player's king)
+    /**
+     * Check if the player is in check (if the opponent's pieces can attack the player's king)
+     * @return true if the player is in check, false otherwise
+     */ 
     public boolean isCheck() {
         return opponent.isAttacking(king.getX(), king.getY());
     }
 
-    // Check if the player is in checkmate (if the player is in check and cannot move out of check)
+    /**
+     * Check if the player is in checkmate (if the player is in check and cannot move out of check)
+     * @return true if the player is in checkmate, false otherwise
+     */ 
     public boolean isCheckmate() {
         // Check the 3x3 square around the king
         for (int x = king.getX() - 1; x <= king.getX() + 1; x++) {
@@ -113,6 +183,12 @@ public class Player {
         return true;
     }
 
+    /**
+     * Check if the player is in stalemate (if the player is not in check and cannot move)
+     * @param x the x coordinate of the square to check
+     * @param y the y coordinate of the square to check
+     * @return true if the player is in stalemate, false otherwise
+     */
     public boolean isAttacking(int x, int y) {
 
         boolean kingAttacking = king.verifyMove(x, y);
@@ -124,7 +200,4 @@ public class Player {
 
         return kingAttacking || queenAttacking || rookAttacking || bishopAttacking || knightAttacking || pawnAttacking;
     }
-
-    
-
 }
