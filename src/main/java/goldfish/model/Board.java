@@ -4,6 +4,7 @@ import goldfish.model.pieces.Bishop;
 import goldfish.model.pieces.King;
 import goldfish.model.pieces.Knight;
 import goldfish.model.pieces.Pawn;
+import goldfish.model.pieces.Piece;
 import goldfish.model.pieces.Queen;
 import goldfish.model.pieces.Rook;
 
@@ -17,12 +18,15 @@ public class Board {
     // The turn (0 = white, 1 = black, -1 = game over)
     private int turn;
     
-
+    /**
+     * Constructor for the board
+     * Creates the board and sets up the pieces
+     */
     public Board() {
         board = new Tile[8][8];
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                board[i][j] = new Tile();
+                board[i][j] = new Tile(j, i);
                 if (i == 1) {
                     board[i][j].setPiece(new Pawn("b", this));
                 } else if (i == 6) {
@@ -123,7 +127,7 @@ public class Board {
      * wp wp wp wp wp wp wp wp 2
      * wR wN wB wQ wK wB wN wR 1
      *  a  b  c  d  e  f  g  h
-* @return String
+     * @return String
      */
     @Override
     public String toString() {
@@ -176,5 +180,9 @@ public class Board {
         } else {
             return 0;
         }
+    }
+
+    public Piece getPiece(int x, int y) {
+        return board[y][x].getPiece();
     }
 }

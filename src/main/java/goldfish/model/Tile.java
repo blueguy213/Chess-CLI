@@ -5,9 +5,13 @@ import goldfish.model.pieces.Piece;
 public class Tile {
 
     private Piece piece;
+    private int x;
+    private int y;
 
-    public Tile() {
+    public Tile(int x, int y) {
         piece = null;
+        this.x = x;
+        this.y = y;
     }
 
     
@@ -19,6 +23,8 @@ public class Tile {
     }
 
     public void setPiece(Piece piece) {
+        piece.setX(x);
+        piece.setY(y);
         this.piece = piece;
     }
     @Override

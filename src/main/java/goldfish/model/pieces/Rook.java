@@ -95,4 +95,10 @@ public class Rook extends Piece{
         // new pos must have same x diff y, or same y diff x
         // 
     }
+
+    @Override
+    public boolean putsKingInCheck(int x, int y) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'putsKingInCheck'");
+    }
 }

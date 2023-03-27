@@ -32,4 +32,11 @@ public class Queen extends Piece{
 
         return (qRook.verifyMove(destX, destY) || qBishop.verifyMove(destX, destY));
     }
+
+
+    @Override
+    public boolean putsKingInCheck(int x, int y) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'putsKingInCheck'");
+    }
 }

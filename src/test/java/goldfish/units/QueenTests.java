@@ -54,8 +54,6 @@ public class QueenTests {
         System.out.print(startingBoard.toString());
        //assertEquals(startingBoard.getWhite().getRooks()[1].verifyMove(5, 5), false);
 
-
-
         assertEquals(testQueen.verifyMove(2,1),false);
         assertEquals(testQueen.verifyMove(3,4),true);
         assertEquals(testQueen.verifyMove(5,4),true);

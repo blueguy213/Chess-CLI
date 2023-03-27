@@ -46,4 +46,11 @@ public class Knight extends Piece {
         return true;
 
     }
+
+
+    @Override
+    public boolean putsKingInCheck(int x, int y) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'putsKingInCheck'");
+    }
 }
