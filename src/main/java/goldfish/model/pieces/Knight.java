@@ -28,7 +28,7 @@ public class Knight extends Piece {
         // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
         // can go to 8 possible spaces each move: 2 in one direction (up/down) or (left/left) and 1 in perpendicular direction
         // its ok if other pieces in it's path
-        System.out.println("destX is " + destX + ", destY is " + destY);
+        // System.out.println("destX is " + destX + ", destY is " + destY);
         int currX = this.getX();
         int currY = this.getY();
          // Check if d is not located 2 steps away in one direction and 1 step away in another direction from c
