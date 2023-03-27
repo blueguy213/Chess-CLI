@@ -6,7 +6,6 @@ public class King extends Piece {
     public King(String color, Board board) {
         super(color, "K", board);
     }
-
     
     /** 
      * Verifies that x and y are within one square of the current position but not both identical
@@ -19,22 +18,30 @@ public class King extends Piece {
     public boolean verifyMove(int x, int y) {
 
         boolean stayingStill = (x == this.getX() && y == this.getY());
+        boolean inRange = (Math.abs(x - this.getX()) <= 1 && Math.abs(y - this.getY()) <= 1);
 
-        if (Math.abs(x - this.getX()) <= 1 && Math.abs(y - this.getY()) <= 1 && !stayingStill) {
-            return !this.isEnemyAttacking(x, y);
-        } else {
-            return false;
-        }
+        return inRange && !stayingStill && !this.isEnemyAttacking(x, y);
     }
 
 
+    /**
+     * Typically not called for the king, but if it is, it will return false.
+     * 
+     * @param x x coordinate of the piece
+     * @param y y coordinate of the piece
+     * @return boolean
+     */
     @Override
     public boolean putsKingInCheck(int x, int y) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'putsKingInCheck'");
+        return false;
     }
 
-
+    /**
+     * Checks if the king can castle with the rook on the left/right side of the board.
+     * 
+     * @param isLeft true if trying to castle with the rook on the left side of the board (a), false if castling with the rook on the right (h)
+     * @return boolean
+     */
     public boolean verifyCastle(boolean isLeft){
         // check if rook and king haven't moved
         // make sure no pieces between rook and king
