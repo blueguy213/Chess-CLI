@@ -3,6 +3,7 @@ import goldfish.model.Board;
 
 
 public class Rook extends Piece {
+    boolean hasMoved = false;
     public Rook(String color, Board board) {
         super(color, "R", board);
     }

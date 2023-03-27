@@ -16,7 +16,7 @@ public class Chess {
         // Tokenize input to see how many tokens there are
         String[] tokens = input.split(" ");
 
-        if (tokens.length == 1) {
+        if (tokens.length == 1) { //must be draw or draw? or resign
             System.out.println("Draw not implemented yet.");
         }
         
