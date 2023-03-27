@@ -118,8 +118,11 @@ public class Board {
 
     // Move the piece at (x, y) to (newX, newY)
     public void movePiece(int x, int y, int newX, int newY) {
-        tiles[newY][newX].setPiece(tiles[y][x].getPiece());
-        tiles[y][x].setPiece(null);
+        //if (tiles[x][y].getPiece() != null){
+            tiles[newY][newX].setPiece(tiles[y][x].getPiece());
+            tiles[y][x].setPiece(null);
+       // }
+        
     }
 
     /**

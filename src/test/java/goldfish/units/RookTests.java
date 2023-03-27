@@ -108,14 +108,48 @@ public class RookTests {
         System.out.print(startingBoard.toString());
         //assertEquals(startingBoard.getWhite().getRooks()[1].verifyMove(5, 5), false);
 
-        assertEquals(testRook.verifyMove(2,3),true);
-        assertEquals(testRook.verifyMove(5,3),true);
-        assertEquals(testRook.verifyMove(4,6),true);
-        assertEquals(testRook.verifyMove(4,1),true);
-    
-    
-        
-    }
 
+        System.out.println("X is " + testRook.getX() + " , Y is " + testRook.getY());
+        assertEquals(testRook.verifyMove(3,2),true);
+        assertEquals(testRook.verifyMove(3,5),true);
+        assertEquals(testRook.verifyMove(6,4),true);
+        assertEquals(testRook.verifyMove(1,4),true);
+        
+    
+    }
+    @Test
+    public void pieceInWay() {
+
+//    0  1  2  3  4  5  6  7 
+// 0  bR bN bB bQ bK bB bN bR 8
+// 1  bp bp bp bp bp bp bp bp 7
+// 2     ##    ##    ##    ## 6
+// 3  ##    ##    ##    ##    5
+// 4     ##    tR    ##    ## 4
+// 5  ##    ##    ##    ##    3 
+// 6  wp wp wp wp wp wp    ## 2
+// 7  wR wN wB wQ wK wB ## wR 1
+//     a  b  c  d  e  f  g  h
+
+        // Setup starting board
+        Board startingBoard = new Board();
+        Rook testRook = new Rook("t", startingBoard);
+        startingBoard.getTiles()[4][3].setPiece(testRook);
+        startingBoard.movePiece(4,6,4,4);
+        startingBoard.movePiece(2,1,2,4);
+    
+
+
+        System.out.print(startingBoard.toString());
+       
+
+        System.out.println("X is " + testRook.getX() + " , Y is " + testRook.getY());
+        assertEquals(testRook.verifyMove(3,0),false);
+        assertEquals(testRook.verifyMove(3,6),false);
+        assertEquals(testRook.verifyMove(6,4),false);
+        assertEquals(testRook.verifyMove(0,4),false);
+        
+    
+    }
 
 }
