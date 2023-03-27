@@ -39,7 +39,7 @@ public class RookTests {
         // startingBoard.getBoard()[6][7].setPiece(null);
         // startingBoard.getBoard()[6][6].setPiece(null);
         // startingBoard.getBoard()[7][6].setPiece(null);
-        startingBoard.getBoard()[4][3].setPiece(testRook);
+        startingBoard.getTiles()[4][3].setPiece(testRook);
 
 
         //    0  1  2  3  4  5  6  7 
@@ -59,10 +59,10 @@ public class RookTests {
 
 
 
-        assertEquals(testRook.verifyMove(2,1),false);
-        assertEquals(testRook.verifyMove(3,4),false);
-        assertEquals(testRook.verifyMove(5,4),false);
-        assertEquals(testRook.verifyMove(5,2),false);
+        assertEquals(testRook.verifyMove(2, 1), false);
+        assertEquals(testRook.verifyMove(3, 4), false);
+        assertEquals(testRook.verifyMove(5, 4), false);
+        assertEquals(testRook.verifyMove(5, 2), false);
        
 
         
@@ -90,7 +90,7 @@ public class RookTests {
         // startingBoard.getBoard()[6][7].setPiece(null);
         // startingBoard.getBoard()[6][6].setPiece(null);
         // startingBoard.getBoard()[7][6].setPiece(null);
-        startingBoard.getBoard()[4][3].setPiece(testRook);
+        startingBoard.getTiles()[4][3].setPiece(testRook);
         
 
 //    0  1  2  3  4  5  6  7 
