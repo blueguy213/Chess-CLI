@@ -2,6 +2,10 @@ package goldfish.model.pieces;
 
 import goldfish.model.Board;
 
+/**
+ * King class represents a king in the game of chess
+ * @author Sree Kommalapati and Shreeti Patel
+ */
 public class King extends Piece {
     
     boolean hasMoved = false;
@@ -24,23 +28,14 @@ public class King extends Piece {
         boolean stayingStill = (x == this.getX() && y == this.getY());
         boolean inRange = (Math.abs(x - this.getX()) <= 1 && Math.abs(y - this.getY()) <= 1);
 
-        return inRange && !stayingStill && !this.isEnemyAttacking(x, y);
-
+        if (inRange && !stayingStill && !this.isEnemyAttacking(x, y)) {
+            return true;
+        } else {
+            return false;
+    
 
         
     }
-
-
-    /**
-     * Typically not called for the king, but if it is, it will return false.
-     * 
-     * @param x x coordinate of the piece
-     * @param y y coordinate of the piece
-     * @return boolean
-     */
-    @Override
-    public boolean putsKingInCheck(int x, int y) {
-        return false;
     }
 //    0  1  2  3  4  5  6  7 
 // 0  bR bN bB bQ bK bB bN bR 8

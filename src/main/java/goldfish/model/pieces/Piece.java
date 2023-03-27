@@ -9,23 +9,37 @@ import goldfish.model.Player;
  */
 public abstract class Piece {
 
-    // w = white, b = black
+    /**
+     * Color of the piece
+     * "w" = white, "b" = black
+     */
     private String color;
 
-    // p = pawn, R = rook, N = knight, B = bishop, Q = queen, K = king
+    /**
+     * Type of the piece
+     * "p" = pawn, "R" = rook, "N" = knight, "B" = bishop, "Q" = queen, "K" = king
+     */
     private String type;
+
+    /**
+     * The Board the piece is on
+     */
+    private Board board;
+
+    /**
+     * Player the piece belongs to
+     */
+    private Player player;
+
+    /**
+     * Flag to see if the piece has moved yet/when (for castling, en passant, and pawn double move) -1 = not moved, otherwise turn moved
+     * @see goldfish.model.Pawn#verifyMove(int, int)
+     * @see goldfish.model.Rook#verifyMove(int, int)
+     */
+    private int turnMoved;
 
     private int x; 
     private int y;
-
-    // Board the piece is on
-    private Board board;
-
-    // Player the piece belongs to
-    private Player player;
-
-    // Flag to see if the piece has moved yet (used for castling and en passant and pawn double move)
-    private boolean hasMoved;
 
     /**
      * Superconstructor for objects that inherit the abstract Piece class.
@@ -37,23 +51,8 @@ public abstract class Piece {
         this.color = color;
         this.type = type;
         this.board = board;
+        this.turnMoved = -1;
     }
-
-    /**
-     * Checks if the move is valid for the piece. True if valid, false if not.
-     * @param x x coordinate of the piece
-     * @param y y coordinate of the piece
-     */
-    public abstract boolean verifyMove(int x, int y);
-
-    /**
-     * Checks if the king will be in check after the move. True if the king is in check, false if not.
-     * Call at the end of verifyMove and only move forward if false.
-     * @param x x coordinate of the piece
-     * @param y y coordinate of the piece
-     * @return boolean
-     */
-    public abstract boolean putsKingInCheck(int x, int y);
 
     /** 
      * Override toString method to return the color and type of the piece
@@ -100,8 +99,8 @@ public abstract class Piece {
      * Gets if the piece has moved yet.
      * @return True if the piece has moved, false if not.
      */
-    public boolean getHasMoved() {
-        return hasMoved;
+    public int getFirstMove() {
+        return turnMoved;
     }
 
     /**
@@ -136,8 +135,8 @@ public abstract class Piece {
         this.player = player;
     }
 
-    public void movement() {
-        hasMoved = true;
+    public void movement(int turn) {
+        turnMoved = turn;
     }
 
     /**
@@ -151,5 +150,30 @@ public abstract class Piece {
         return player.getOpponent().isAttacking(x, y);
     }
 
+    /**
+     * Checks if the king will be in check after the move. True if the king will be in check, false otherwise.
+     * Call at the end of verifyMove and only move true if this is false.
+     * @param x x coordinate of the piece
+     * @param y y coordinate of the piece
+     * @return boolean
+     */
+    public boolean putsKingInCheck(int x, int y) {
+        Piece oldPiece = getBoard().getPiece(x, y);
+        getBoard().movePiece(this.x, this.y, x, y);
+        // Check if the king is still in check
 
+        if (!getPlayer().isCheck()) {
+            getBoard().getTiles()[y][x].setPiece(oldPiece);
+            return false;
+        }
+        getBoard().getTiles()[y][x].setPiece(oldPiece);
+        return true;
+    }
+
+    /**
+     * Checks if the move is valid for the piece. True if valid, false if not.
+     * @param x x coordinate of the piece
+     * @param y y coordinate of the piece
+     */
+    public abstract boolean verifyMove(int x, int y);
 }

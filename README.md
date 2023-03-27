@@ -59,19 +59,17 @@ ________________________________________________________________________________
 =======================================================================================================
 _______________________________________________________________________________________________________
 
-# src -> Source Files
-# 
-# # src/main/java/goldfish -> Java files that make the app run
-#  #  
-#  # # src/main/java/goldfish/app -> Contains entrypoint of the application
-#  #
-#  # # src/main/java/goldfish/model -> Contains code for game objects and board logic
-#  #
-#  # # src/main/java/goldfish/model/pieces -> Contains code for piece logic
-#   
-# # # src/test/java/goldfish  -> Java files that test the application
-   #
-   # # src/test/java/goldfish/units -> Unit tests for specific pieces of the application
+# ## # ## # How to Build the Docs # ## # ## #
+
+ - To build the docs for the chess, model, and pieces packages, which have all the java source code:
+ - Navigate to chessrepo/src/main/java and execute the following command:
+# javadoc -d doc goldfish.chess goldfish.model goldfish.model.pieces
+
+ - To build the docs for the tests written using JUnit, which show how the tests verify the program:
+ - Navigate to chessrepo/test/java and execute the following command:
+
+# javadoc -d doc goldfish.chess goldfish.model goldfish.model.pieces
+
 
 _______________________________________________________________________________________________________
 =======================================================================================================

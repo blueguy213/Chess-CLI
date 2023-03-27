@@ -18,23 +18,43 @@ public class Pawn extends Piece {
     }
 
     /** 
-     * Return true if the pawn can move to the given coordinates and false otherwise
+     * Return true if the move is valid for a pawn
      * @param x x coordinate of the piece
      * @param y y coordinate of the piece
      * @return boolean
      */
     @Override
     public boolean verifyMove(int x, int y) {
-        if (x != this.getX()) {
+        if (Math.abs(this.getX() - x) > 1) {
             return false;
-        } else {
+        } else if (this.getX() == x) {
             if (this.getColor().equals("w")) {
-                if (y == this.getY() - 1 || (y == this.getY() - 2 && !this.getHasMoved())) {
+                if (y == this.getY() - 1 && getBoard().isOccupied(x, y) == 0) {
+                    return true;
+                } else if (y == this.getY() - 2 && this.getFirstMove() == -1 && getBoard().isOccupied(x, y + 1) == 0 && getBoard().isOccupied(x, y) == 0) {
                     return getBoard().isOccupied(x, y) != 1;
                 }
             } else {
-                if (y == this.getY() + 1 || (y == this.getY() + 2 && !this.getHasMoved())) {
+                if (y == this.getY() + 1 && getBoard().isOccupied(x, y) != 2) {
                     return true;
+                } else if (y == this.getY() + 2 && this.getFirstMove() == -1 && getBoard().isOccupied(this.getX(), this.getY() + 1) == 0 && getBoard().isOccupied(x, y) != 2) {
+                    return true;
+                }
+            }
+        } else {
+            if (this.getColor().equals("w")) {
+                if (y == this.getY() - 1) {
+                    if (getBoard().isOccupied(x, y) == 2) {
+                        return true;
+                    } else if (getBoard().getPiece(x, y + 1).toString().charAt(1) == 'p' && getBoard().getPiece(x, y + 1).getFirstMove() == getBoard().getTurn() - 1) {
+                        return true;
+                    }
+                }
+            } else {
+                if (y == this.getY() + 1 && getBoard().isOccupied(x, y) == 1) {
+                    return true;
+                } else if (y < 7 && getBoard().getPiece(x, y + 1).toString().charAt(1) == 'p' && getBoard().getPiece(x, y + 1).getFirstMove() == getBoard().getTurn() - 1) {
+                    
                 }
             }
         }
