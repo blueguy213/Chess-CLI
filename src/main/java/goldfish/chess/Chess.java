@@ -60,7 +60,7 @@ public class Chess {
 
             do {
                 // Prompt player for input
-                if (board.getTurn() % 2 == 0) {
+                if (board.getTurn() == 0) {
                     System.out.print("White's move: ");
                 } else {
                     System.out.print("Black's move: ");

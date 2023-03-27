@@ -19,7 +19,8 @@ public class Board {
     // The players
     private Player white;
     private Player black;
-    // The turn (0 = white, 1 = black, -1 = game over)
+
+    // The turn
     private int turn;
     
     /**
@@ -140,11 +141,12 @@ public class Board {
     public void movePiece(int x, int y, int newX, int newY) {
         boolean isPieceNotifiedByMovement = tiles[y][x].getPiece().toString().charAt(1) == 'p' || tiles[y][x].getPiece().toString().charAt(1) == 'K' || tiles[y][x].getPiece().toString().charAt(1) == 'R';
         if (isPieceNotifiedByMovement) {
-            tiles[y][x].getPiece().movement();;
+            tiles[y][x].getPiece().movement(turn);
         }
         tiles[newY][newX].setPiece(tiles[y][x].getPiece());
         tiles[y][x].setPiece(null);
         incrementTurn();
+        System.out.println("Turn: " + turn);
     }
 
     /**
@@ -194,7 +196,7 @@ public class Board {
      * @return 0 if white, 1 if black
      */
     public int getTurn() {
-        return turn;
+        return turn % 2;
     }
 
     /**
@@ -229,11 +231,11 @@ public class Board {
      * Flips turn from white to black or vice versa
      */
     public void incrementTurn() {
-        turn = (turn + 1) % 2;
+        turn++;
     }
 
     /**
-     * Ends the game by setting turn to -1 as a signal for the game loop to end
+     * Ends the game by setting turn to -2 as a signal for the game loop to end
      */
     public void gameOver() {
         turn = -1;
