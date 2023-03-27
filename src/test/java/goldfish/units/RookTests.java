@@ -39,7 +39,7 @@ public class RookTests {
         // startingBoard.getBoard()[6][7].setPiece(null);
         // startingBoard.getBoard()[6][6].setPiece(null);
         // startingBoard.getBoard()[7][6].setPiece(null);
-        startingBoard.getTiles()[4][3].setPiece(testRook);
+        startingBoard.getBoard()[4][3].setPiece(testRook);
 
 
         //    0  1  2  3  4  5  6  7 
@@ -90,7 +90,8 @@ public class RookTests {
         // startingBoard.getBoard()[6][7].setPiece(null);
         // startingBoard.getBoard()[6][6].setPiece(null);
         // startingBoard.getBoard()[7][6].setPiece(null);
-        startingBoard.getTiles()[4][3].setPiece(testRook);
+        startingBoard.getBoard()[4][3].setPiece(testRook);
+        
 
 //    0  1  2  3  4  5  6  7 
 // 0  bR bN bB bQ bK bB bN bR 8
