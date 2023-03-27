@@ -167,7 +167,7 @@ public class Board {
      * @return 
      */
     public int isOccupied(int x, int y) {
-        if (board[x][y].isOccupied()) {
+        if (board[y][x].isOccupied()) {
             if (board[y][x].getPiece().getColor().equals("w")) {
                 return 1;
             } else {

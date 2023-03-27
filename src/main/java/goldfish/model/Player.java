@@ -57,6 +57,10 @@ public class Player {
         return pawns;
     }
 
+    public Player getOpponent() {
+        return opponent;
+    }
+
     // Check if the player is in check (if the opponent's pieces can attack the player's king)
     public boolean check() {
         /*
@@ -69,6 +73,18 @@ public class Player {
     public boolean checkmate() {
         // TODO: Implement checkmate
         return false;
+    }
+
+    public boolean isAttacking(int x, int y) {
+
+        boolean kingAttacking = king.verifyMove(x, y);
+        boolean queenAttacking = queen.verifyMove(x, y);
+        boolean rookAttacking = rooks[0].verifyMove(x, y) || rooks[1].verifyMove(x, y);
+        boolean bishopAttacking = bishops[0].verifyMove(x, y) || bishops[1].verifyMove(x, y);
+        boolean knightAttacking = knights[0].verifyMove(x, y) || knights[1].verifyMove(x, y);
+        boolean pawnAttacking = pawns[0].verifyMove(x, y) || pawns[1].verifyMove(x, y) || pawns[2].verifyMove(x, y) || pawns[3].verifyMove(x, y) || pawns[4].verifyMove(x, y) || pawns[5].verifyMove(x, y) || pawns[6].verifyMove(x, y) || pawns[7].verifyMove(x, y);
+
+        return kingAttacking || queenAttacking || rookAttacking || bishopAttacking || knightAttacking || pawnAttacking;
     }
 
     

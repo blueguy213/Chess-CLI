@@ -1,6 +1,7 @@
 package goldfish.model.pieces;
 
 import goldfish.model.Board;
+import goldfish.model.Player;
 
 public abstract class Piece {
 
@@ -10,6 +11,7 @@ public abstract class Piece {
     private int y; // y coordinate
 
     private Board board;
+    private Player player;
 
     public Piece(String color, String type, Board board) {
         this.color = color;
@@ -52,8 +54,11 @@ public abstract class Piece {
         this.x = newX;
     }
 
-    //
     public Board getBoard() {
         return board;
+    }
+
+    public boolean isEnemyAttacking(int x, int y) {
+        return player.getOpponent().isAttacking(x, y);
     }
 }
