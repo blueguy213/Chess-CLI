@@ -160,7 +160,7 @@ public class Player {
                 // Check if the square is on the board
                 if (x >= 0 && x < 8 && y >= 0 && y < 8) {
                     // Check if the king can move to the square
-                    if (king.verifyMove(x, y)) {
+                    if (king.verifyMove(x, y, false)) {
                         // Check if the king is still in check
                         if (!opponent.isAttacking(x, y)) {
                             return false;
@@ -174,7 +174,7 @@ public class Player {
             for (int x = 0; x < 8; x++) {
                 for (int y = 0; y < 8; y++) {
                     // Check if the piece can move to the square
-                    if (piece.verifyMove(x, y)) {
+                    if (piece.verifyMove(x, y, false)) {
                         Piece oldPiece = piece.getBoard().getPiece(x, y);
                         piece.getBoard().movePiece(piece.getX(), piece.getY(), x, y);
                         // Check if the king is still in check
@@ -199,12 +199,12 @@ public class Player {
      */
     public boolean isAttacking(int x, int y) {
 
-        boolean kingAttacking = king.verifyMove(x, y);
-        boolean queenAttacking = queen.verifyMove(x, y);
-        boolean rookAttacking = rooks[0].verifyMove(x, y) || rooks[1].verifyMove(x, y);
-        boolean bishopAttacking = bishops[0].verifyMove(x, y) || bishops[1].verifyMove(x, y);
-        boolean knightAttacking = knights[0].verifyMove(x, y) || knights[1].verifyMove(x, y);
-        boolean pawnAttacking = pawns[0].verifyMove(x, y) || pawns[1].verifyMove(x, y) || pawns[2].verifyMove(x, y) || pawns[3].verifyMove(x, y) || pawns[4].verifyMove(x, y) || pawns[5].verifyMove(x, y) || pawns[6].verifyMove(x, y) || pawns[7].verifyMove(x, y);
+        boolean kingAttacking = king.verifyMove(x, y, false);
+        boolean queenAttacking = queen.verifyMove(x, y, false);
+        boolean rookAttacking = rooks[0].verifyMove(x, y, false) || rooks[1].verifyMove(x, y, false);
+        boolean bishopAttacking = bishops[0].verifyMove(x, y, false) || bishops[1].verifyMove(x, y, false);
+        boolean knightAttacking = knights[0].verifyMove(x, y, false) || knights[1].verifyMove(x, y, false);
+        boolean pawnAttacking = pawns[0].verifyMove(x, y, false) || pawns[1].verifyMove(x, y, false) || pawns[2].verifyMove(x, y, false) || pawns[3].verifyMove(x, y, false) || pawns[4].verifyMove(x, y, false) || pawns[5].verifyMove(x, y, false) || pawns[6].verifyMove(x, y, false) || pawns[7].verifyMove(x, y, false);
 
         return kingAttacking || queenAttacking || rookAttacking || bishopAttacking || knightAttacking || pawnAttacking;
     }

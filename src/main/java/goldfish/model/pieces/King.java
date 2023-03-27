@@ -23,7 +23,8 @@ public class King extends Piece {
      * @return boolean
      */
     @Override
-    public boolean verifyMove(int destX, int destY) {
+    public boolean verifyMove(int destX, int destY, boolean real) {
+
 
         int currX = this.getX();
         int currY = this.getY();
@@ -31,6 +32,7 @@ public class King extends Piece {
 
         boolean stayingStill = (destX == currX && destY == currY);
         boolean inRange = (Math.abs(destX - currX) <= 1 && Math.abs(destY - currY) <= 1);
+
 
         if (currX==0) {
             verifyCastle(true);
@@ -69,20 +71,20 @@ public class King extends Piece {
     public boolean verifyCastle(boolean isLeft){
         
         // not in check 
-        if (this.getPlayer().isCheck()){
+        if (this.getPlayer().isCheck()) {
             return false;
         }
 
-        if (isLeft){ // if left side of board castle
+        if (isLeft) { // if left side of board castle
 
-            if(this.getColor().equals('w')){ // if white
+            if(this.getColor().equals("w")){ // if white
                 if ((this.hasMoved== false) && (this.getBoard().getWhite().getRooks()[0].hasMoved)==false){ // king and left rook haven't moved
                     if((this.getBoard().isOccupied(1, 7) == 0) && (this.getBoard().isOccupied(2,7) == 0)){ // no pieces in between
                         return true;
                     }
                 }
             }
-            if(this.getColor().equals('b')){ // if black
+            if(this.getColor().equals("b")) { // if black
                 if ((this.hasMoved== false) && (this.getBoard().getBlack().getRooks()[0].hasMoved)==false){// king and left rook haven't moved
                     if((this.getBoard().isOccupied(1, 0) == 0) && (this.getBoard().isOccupied(2, 0) == 0)){ // no pieces in between
                         return true;
@@ -90,14 +92,14 @@ public class King extends Piece {
                 }
             }
         } else { // if right side of board castle
-            if(this.getColor().equals('w')){ // if white
+            if(this.getColor().equals("w")) { // if white
                 if ((this.hasMoved== false) && (this.getBoard().getWhite().getRooks()[1].hasMoved)==false){ // king and right rook haven't moved
                     if((this.getBoard().isOccupied(5, 7) == 0) && (this.getBoard().isOccupied(6, 7) == 0)){ // no pieces in between
                         return true;
                     }
                 }
             }
-            if(this.getColor().equals('b')){ // if black
+            if(this.getColor().equals("b")) { // if black
                 if ((this.hasMoved== false) && (this.getBoard().getBlack().getRooks()[1].hasMoved)==false){ // king and right rook haven't moved
                     if((this.getBoard().isOccupied(5, 0) == 0) && (this.getBoard().isOccupied(6, 0) == 0)){ // no pieces in between
                         return true;

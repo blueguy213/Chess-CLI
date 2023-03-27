@@ -145,8 +145,6 @@ public class Board {
         }
         tiles[newY][newX].setPiece(tiles[y][x].getPiece());
         tiles[y][x].setPiece(null);
-        incrementTurn();
-        System.out.println("Turn: " + turn);
     }
 
     /**
@@ -232,6 +230,11 @@ public class Board {
      */
     public void incrementTurn() {
         turn++;
+        System.out.println("Turn: " + turn);
+    }
+
+    public int getRealTurn() {
+        return turn;
     }
 
     /**

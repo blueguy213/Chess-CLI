@@ -59,10 +59,10 @@ public class RookTests {
 
 
 
-        assertEquals(testRook.verifyMove(2, 1), false);
-        assertEquals(testRook.verifyMove(3, 4), false);
-        assertEquals(testRook.verifyMove(4, 5), false);
-        assertEquals(testRook.verifyMove(5, 2), false);
+        assertEquals(testRook.verifyMove(2, 1, false), false);
+        assertEquals(testRook.verifyMove(3, 4, false), false);
+        assertEquals(testRook.verifyMove(4, 5, false), false);
+        assertEquals(testRook.verifyMove(5, 2, false), false);
        
 
         
@@ -110,10 +110,10 @@ public class RookTests {
 
 
         System.out.println("X is " + testRook.getX() + " , Y is " + testRook.getY());
-        assertEquals(testRook.verifyMove(3,2),true);
-        assertEquals(testRook.verifyMove(3,5),true);
-        assertEquals(testRook.verifyMove(6,4),true);
-        assertEquals(testRook.verifyMove(1,4),true);
+        assertEquals(testRook.verifyMove(3,2, false),true);
+        assertEquals(testRook.verifyMove(3,5, false),true);
+        assertEquals(testRook.verifyMove(6,4, false),true);
+        assertEquals(testRook.verifyMove(1,4, false),true);
         
     
     }
@@ -144,10 +144,10 @@ public class RookTests {
        
 
         System.out.println("X is " + testRook.getX() + " , Y is " + testRook.getY());
-        assertEquals(testRook.verifyMove(3,0),false);
-        assertEquals(testRook.verifyMove(3,6),false);
-        assertEquals(testRook.verifyMove(6,4),false);
-        assertEquals(testRook.verifyMove(0,4),false);
+        assertEquals(testRook.verifyMove(3,0, false),false);
+        assertEquals(testRook.verifyMove(3,6, false),false);
+        assertEquals(testRook.verifyMove(6,4, false),false);
+        assertEquals(testRook.verifyMove(0,4, false),false);
         
     
     }

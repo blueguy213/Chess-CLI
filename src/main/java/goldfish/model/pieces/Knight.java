@@ -23,7 +23,7 @@ public class Knight extends Piece {
      * @return boolean
      */
     @Override
-    public boolean verifyMove(int destX, int destY) {
+    public boolean verifyMove(int destX, int destY, boolean real) {
         // TODO Auto-generated method stub
         // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
         // can go to 8 possible spaces each move: 2 in one direction (up/down) or (left/left) and 1 in perpendicular direction

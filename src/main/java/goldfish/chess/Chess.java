@@ -78,7 +78,7 @@ public class Chess {
         }
         if (board.getTiles()[src_y][src_x].getPiece() != null
         && board.getTiles()[src_y][src_x].getPiece().getColor().equals(currentPlayer.getColor())
-        && board.getTiles()[src_y][src_x].getPiece().verifyMove(dest_x, dest_y)) {
+        && board.getTiles()[src_y][src_x].getPiece().verifyMove(dest_x, dest_y, true)) {
             return true;
         } else {
             System.out.println("Illegal move, try again");
@@ -112,6 +112,7 @@ public class Chess {
             }    
             // Move piece
             board.movePiece(src_x, src_y, dest_x, dest_y);
+            board.incrementTurn();
 
             // Draw board
             System.out.print(board);
