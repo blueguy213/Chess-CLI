@@ -97,9 +97,13 @@ public class Player {
                 for (int y = 0; y < 8; y++) {
                     // Check if the piece can move to the square
                     if (piece.verifyMove(x, y)) {
-                        // Simulate the move but make sure to undo it afterwards and check if the king is still in check
                         Piece oldPiece = piece.getBoard().getPiece(x, y);
                         piece.getBoard().movePiece(piece.getX(), piece.getY(), x, y);
+                        // Check if the king is still in check
+                        if (!opponent.isAttacking(x, y)) {
+                            piece.getBoard().getTiles()[y][x].setPiece(oldPiece);
+                            return false;
+                        }
                     }
                 }
             }

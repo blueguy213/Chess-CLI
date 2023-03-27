@@ -41,11 +41,13 @@ SP:
 
 SK:
 [SK] Implement verifyMove in King
-[SK] Test verifyMove in King
-[SK] Test verfiyCastle in King
 [SK] Check/ Checkmate
 [SK] Input Varifictaion
 [SK] Game Loop
+[SK] Test Game Loop
+[SK] Test Input Verification
+[SK] Test verifyMove in King
+[SK] Test verfiyCastle in King
 [SK] Write 5 Tests
 
 _______________________________________________________________________________________________________

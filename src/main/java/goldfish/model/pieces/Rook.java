@@ -47,8 +47,6 @@ public class Rook extends Piece{
                 (getBoard().isOccupied(currX, currY) == getBoard().isOccupied(destX, destY))){
             return false;
         }
-      
-
 
         // check for pieces in middle of path
 
