@@ -24,7 +24,9 @@ public class Chess
             //input varification
             boolean invalidLength = input.length() != 5;
             boolean invalidFormat = input.charAt(2) != ' ';
-            if (input.length() != 5) {
+            boolean notInRange = input.charAt(0) < 'a' || input.charAt(0) > 'h' || input.charAt(3) < 'a' || input.charAt(3) > 'h' || input.charAt(1) < '1' || input.charAt(1) > '8' || input.charAt(4) < '1' || input.charAt(4) > '8';
+
+            if (invalidLength || invalidFormat || notInRange) {
                 System.out.println("Invalid input");
                 continue;
             }
