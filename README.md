@@ -31,9 +31,9 @@ SP:
 [X] Implement verifyMove in Queen
 [X] Implement verifyMove in Knight
 [SP] Write 5 Tests
-[SP] Test Rook
-[SP] Test Bishop
-[SP] Test Queen
+[X] Test Rook
+[X] Test Bishop
+[X] Test Queen
 [SP] Test Knight
 [SP] In Tile.setPiece() method should we update the coridnates of piece
 [X]  In Piece should we add setX() and setY() methods
