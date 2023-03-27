@@ -18,24 +18,35 @@ public class King extends Piece {
     /** 
      * Verifies that x and y are within one square of the current position but not both identical
      * and that the new square is not under attack by the oppponent.
-     * @param x
-     * @param y
+     * @param destX
+     * @param destY
      * @return boolean
      */
     @Override
-    public boolean verifyMove(int x, int y) {
+    public boolean verifyMove(int destX, int destY) {
 
-        boolean stayingStill = (x == this.getX() && y == this.getY());
-        boolean inRange = (Math.abs(x - this.getX()) <= 1 && Math.abs(y - this.getY()) <= 1);
+        int currX = this.getX();
+        int currY = this.getY();
 
-        if (inRange && !stayingStill && !this.isEnemyAttacking(x, y)) {
+
+        boolean stayingStill = (destX == currX && destY == currY);
+        boolean inRange = (Math.abs(destX - currX) <= 1 && Math.abs(destY - currY) <= 1);
+
+        if (currX==0) {
+            verifyCastle(true);
+        }else if (currX == 7){
+            verifyCastle(false);
+        }
+
+        if (inRange && !stayingStill && !this.isEnemyAttacking(destX, destY)) {
             return true;
         } else {
             return false;
-    
+        }
+        
 
         
-    }
+    
     }
 //    0  1  2  3  4  5  6  7 
 // 0  bR bN bB bQ bK bB bN bR 8

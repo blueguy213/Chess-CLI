@@ -146,7 +146,7 @@ public class KnightTests {
  // 1  bp bp bp bp bp bp bp bp 7
  // 2     ##    ##    ##    ## 6
  // 3  ##    ##    ##    ##    5
- // 4     ##    tR    ##    ## 4
+ // 4     ##    tK    ##    ## 4
  // 5  ##    ##    ##    ##    3 
  // 6  wp wp wp wp wp wp    ## 2
  // 7  wR wN wB wQ wK wB ## wR 1
@@ -158,6 +158,7 @@ public class KnightTests {
          startingBoard.getTiles()[4][3].setPiece(testKnight);
          startingBoard.movePiece(4,6,4,4);
          startingBoard.movePiece(2,1,2,4);
+         startingBoard.movePiece(3,1,3,3);
     
 
 
@@ -165,10 +166,10 @@ public class KnightTests {
        
 
         System.out.println("X is " + testKnight.getX() + " , Y is " + testKnight.getY());
-        assertEquals(testKnight.verifyMove(3,0),false);
-        assertEquals(testKnight.verifyMove(3,6),false);
-        assertEquals(testKnight.verifyMove(6,4),false);
-        assertEquals(testKnight.verifyMove(0,4),false);
+        assertEquals(testKnight.verifyMove(4,6),true);
+        assertEquals(testKnight.verifyMove(2,2),true);
+        assertEquals(testKnight.verifyMove(5,5),true);
+        assertEquals(testKnight.verifyMove(5,3),true);
         
     
     }
