@@ -37,9 +37,12 @@ SP:
 [SP] Test Knight
 [SP] In Tile.setPiece() method should we update the coridnates of piece
 [X] In Piece should we add setX() and setY() methods
+[SP] Implement verfiyCastle in King
 
 SK:
 [SK] Implement verifyMove in King
+[SK] Test verifyMove in King
+[SK] Test verfiyCastle in King
 [SK] Check/ Checkmate
 [SK] Input Varifictaion
 [SK] Game Loop
