@@ -39,16 +39,17 @@ SP:
 [X] In Piece should we add setX() and setY() methods
 [SP] Implement verfiyCastle in King
 
+
 SK:
-[SK] Implement verifyMove in King
-[SK] Check/ Checkmate
-[SK] Input Varifictaion
+[SK] Implement verifyMove in King 
+[SK] Check / Checkmate 
+[SK] Input Varifictaion 
 [SK] Game Loop
-[SK] Test Game Loop
-[SK] Test Input Verification
-[SK] Test verifyMove/verifyCastle in King
-[SK] Test Check/Checkmate
-[SK] Write 5 Tests
+[SK] Test Game Loop 
+[SK] Test Input Verification 
+[SK] Test verifyMove/verifyCastle in King 
+[SK] Test Check/Checkmate 
+[SK] Write 5 Tests 
 
 _______________________________________________________________________________________________________
 =======================================================================================================
