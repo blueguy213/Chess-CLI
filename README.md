@@ -20,6 +20,30 @@ Shreeti Patel and Sree Kommalapati
 # Piece Logic:
 - Defining piece behaviour
 - Determining possible moves for each piece
+_______________________________________________________________________________________________________
+=======================================================================================================
+_______________________________________________________________________________________________________
+
+# To Do:
+SP:
+[X] Implement verifyMove in Rook
+[X] Implement verifyMove in Bishop
+[X] Implement verifyMove in Queen
+[X] Implement verifyMove in Knight
+[SP] Write 5 Tests
+[SP] Test Rook
+[SP] Test Bishop
+[SP] Test Queen
+[SP] Test Knight
+[SP] In Tile.setPiece() method should we update the coridnates of piece
+[X] In Piece should we add setX() and setY() methods
+
+SK:
+[SK] Implement verifyMove in King
+[SK] Check/ Checkmate
+[SK] Input Varifictaion
+[SK] Game Loop
+[SK] Write 5 Tests
 
 _______________________________________________________________________________________________________
 =======================================================================================================

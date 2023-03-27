@@ -41,6 +41,22 @@ public class Player {
         return king;
     }
 
+    public Rook[] getRooks() {
+        return rooks;
+    }
+
+    public Bishop[] getBishops() {
+        return bishops;
+    }
+
+    public Knight[] getKnights() {
+        return knights;
+    }
+
+    public Pawn[] getPawns() {
+        return pawns;
+    }
+
     // Check if the player is in check (if the opponent's pieces can attack the player's king)
     public boolean check() {
         /*

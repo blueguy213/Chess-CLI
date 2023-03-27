@@ -43,4 +43,17 @@ public abstract class Piece {
     public int getX() {
         return x;
     }
+
+    public void setY(int newY) {
+        this.y = newY;
+    }
+
+    public void setX(int newX) {
+        this.x = newX;
+    }
+
+    //
+    public Board getBoard() {
+        return board;
+    }
 }
