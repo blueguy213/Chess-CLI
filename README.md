@@ -39,6 +39,7 @@ SP:
 [X] In Piece should we add setX() and setY() methods
 [SP] Implement verfiyCastle in King
 
+
 SK:
 [X] Implement verifyMove in King
 [X] Check/ Checkmate
