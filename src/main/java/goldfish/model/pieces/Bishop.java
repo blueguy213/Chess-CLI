@@ -2,6 +2,10 @@ package goldfish.model.pieces;
 
 import goldfish.model.Board;
 
+/**
+ * The Bishop class represents a bishop in the game of chess
+ * @author Shreeti Patel and Sree Kommalapati 
+ */
 public class Bishop extends Piece{
     public Bishop(String color, Board board) {
         super(color, "B", board);

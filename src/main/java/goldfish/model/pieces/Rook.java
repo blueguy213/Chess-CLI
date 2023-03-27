@@ -1,7 +1,10 @@
 package goldfish.model.pieces;
 import goldfish.model.Board;
 
-
+/**
+ * The Rook class represents a rook in the game of chess
+ * @author Shreeti Patel and Sree Kommalapati
+ */
 public class Rook extends Piece {
     boolean hasMoved = false;
     public Rook(String color, Board board) {

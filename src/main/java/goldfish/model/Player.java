@@ -10,7 +10,7 @@ import goldfish.model.pieces.Piece;
 
 /**
  * The Player class represents a player in the game of chess
- * @author Goldfish
+ * @author Sree Kommalapati and Shreeti Patel
  */
 public class Player {
 
@@ -37,9 +37,8 @@ public class Player {
      * @param knights the knights of the player
      * @param pawns the pawns of the player
      */
-    public Player(String color, Player opponent,King king, Queen queen, Rook[] rooks, Bishop[] bishops, Knight[] knights, Pawn[] pawns) {
+    public Player(String color, King king, Queen queen, Rook[] rooks, Bishop[] bishops, Knight[] knights, Pawn[] pawns) {
         this.color = color;
-        this.opponent = opponent;
         this.king = king;
         this.king.setPlayer(this);
         this.queen = queen;
@@ -134,6 +133,15 @@ public class Player {
     }
 
     /**
+     * Set opponent
+     * 
+     * @param Player The opponent of the player
+     */
+    public void setOpponent(Player opponent) {
+        this.opponent = opponent;
+    }
+
+    /**
      * Check if the player is in check (if the opponent's pieces can attack the player's king)
      * @return true if the player is in check, false otherwise
      */ 
@@ -170,7 +178,7 @@ public class Player {
                         Piece oldPiece = piece.getBoard().getPiece(x, y);
                         piece.getBoard().movePiece(piece.getX(), piece.getY(), x, y);
                         // Check if the king is still in check
-                        if (!opponent.isAttacking(x, y)) {
+                        if (!isCheck()) {
                             piece.getBoard().getTiles()[y][x].setPiece(oldPiece);
                             return false;
                         }

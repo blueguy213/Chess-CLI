@@ -13,6 +13,7 @@ import goldfish.chess.Chess;
 
 /**
  * Ensures the starting board is set up and printed properly for Chess
+ * @author Sree Kommalapati and Shreeti Patel
  */
 public class GameLoopTests {
 
