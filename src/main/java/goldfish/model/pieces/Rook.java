@@ -38,7 +38,7 @@ public class Rook extends Piece {
         
         // See if move is valid move for a rook
         if (!(((destX == currX) && (destY != currY)) || ((destX != currX)) && (destY == currY))){
-            System.out.println("A: invlaid rook move");
+            //System.out.println("A: invlaid rook move");
             return false;
         } 
 
@@ -46,7 +46,7 @@ public class Rook extends Piece {
         // if destination has same color piece as --> false 
         if (((getBoard().isOccupied(destX, destY)) != 0) && // dest tile is not empty and colors of curr and next tiles are same 
                 (getBoard().isOccupied(currX, currY) == getBoard().isOccupied(destX, destY))) {
-            System.out.println("B: same color dest");
+            //System.out.println("B: same color dest");
             return false;
         }
 
@@ -58,7 +58,7 @@ public class Rook extends Piece {
             if (currY > destY){ // going up
                 for(int r = currY-1; r >= destY; r--) { // for each row index from currY to destY going up
                     if (getBoard().isOccupied(currX,r) != 0){ // if tile is occuipied return false
-                        System.out.println("C: piece in way going up. and r is " + r );
+                        //System.out.println("C: piece in way going up. and r is " + r );
                         return false;
                     }
                 }
@@ -66,7 +66,7 @@ public class Rook extends Piece {
             if (currY < destY){ //doing down
                 for(int r = currY+1; r <= destY; r++) { // for each row index from currY to destY going up
                     if (getBoard().isOccupied(currX,r) != 0){ // if tile is occuipied return false
-                        System.out.println("D: piece in way going down");
+                        //System.out.println("D: piece in way going down");
                         return false;
                     }
                 }
@@ -91,7 +91,7 @@ public class Rook extends Piece {
             if (currX > destX){ // going left
                 for(int c = currX-1; c >= destX; c--) { // for each row index from currX to destx going left
                     if (getBoard().isOccupied(c, currY) != 0){ // if tile is occuipied return false
-                        System.out.println("E: piece in way going left");
+                        //System.out.println("E: piece in way going left");
                         return false;
                     }
                 }
@@ -99,7 +99,7 @@ public class Rook extends Piece {
             if (currX < destX){ //doing right
                 for(int c = currX+1; c <= destX; c++) { // for each row index from currY to destY going up
                     if (getBoard().isOccupied(c, currY) != 0){ // if tile is occuipied return false
-                        System.out.println("F: piece in way going right and c is " + c);
+                        //System.out.println("F: piece in way going right and c is " + c);
                         return false;
                     }
                 }

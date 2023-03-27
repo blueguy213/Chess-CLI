@@ -6,13 +6,13 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import goldfish.model.Board;
-import goldfish.model.pieces.Queen;
+import goldfish.model.pieces.Bishop;
 
 
 /**
  * Ensures the starting board is set up and printed properly for Chess.
  */
-public class QueenTests {
+public class BishopTests {
     /**
      * Rigorous Test :-)
      */
@@ -21,10 +21,10 @@ public class QueenTests {
      @Test
      public void diagonalMove() {
        // Setup starting board
-         Board startingBoard = new Board();
-         Queen testQueen = new Queen("t", startingBoard);
+        Board startingBoard = new Board();
+        Bishop testBishop = new Bishop("t", startingBoard);
          
-        startingBoard.getTiles()[4][3].setPiece(testQueen);
+        startingBoard.getTiles()[4][3].setPiece(testBishop);
  
  
          //    0  1  2  3  4  5  6  7 
@@ -32,7 +32,7 @@ public class QueenTests {
          // 1  bp bp bp bp bp bp bp bp 7
          // 2     ##    ##    ##    ## 6
          // 3  ##    ##    ##    ##    5
-         // 4     ##    tQ    ##    ## 4
+         // 4     ##    tB    ##    ## 4
          // 5  ##    ##    ##    ##    3 
          // 6  wp wp wp wp wp wp    ## 2
          // 7  wR wN wB wQ wK wB ## wR 1
@@ -42,10 +42,10 @@ public class QueenTests {
          System.out.print(startingBoard.toString());
       
  
-         assertEquals(testQueen.verifyMove(1, 2), true);
-         assertEquals(testQueen.verifyMove(4, 3), true);
-         assertEquals(testQueen.verifyMove(4, 5), true);
-         assertEquals(testQueen.verifyMove(2, 5), true);
+         assertEquals(testBishop.verifyMove(1, 2), true);
+         assertEquals(testBishop.verifyMove(4, 3), true);
+         assertEquals(testBishop.verifyMove(4, 5), true);
+         assertEquals(testBishop.verifyMove(2, 5), true);
         
  
          
@@ -57,13 +57,13 @@ public class QueenTests {
 
          // Setup starting board
          Board startingBoard = new Board();
-         Queen testQueen = new Queen("t", startingBoard);
+         Bishop testBishop = new Bishop("t", startingBoard);
          
          // Clear pieces out of the way
          // startingBoard.getBoard()[6][7].setPiece(null);
          // startingBoard.getBoard()[6][6].setPiece(null);
          // startingBoard.getBoard()[7][6].setPiece(null);
-         startingBoard.getTiles()[4][3].setPiece(testQueen);
+         startingBoard.getTiles()[4][3].setPiece(testBishop);
          
  
  //    0  1  2  3  4  5  6  7 
@@ -79,14 +79,14 @@ public class QueenTests {
  
  
          System.out.print(startingBoard.toString());
-         //assertEquals(startingBoard.getWhite().getQueens()[1].verifyMove(5, 5), false);
+         //assertEquals(startingBoard.getWhite().getBishops()[1].verifyMove(5, 5), false);
  
  
-         System.out.println("X is " + testQueen.getX() + " , Y is " + testQueen.getY());
-         assertEquals(testQueen.verifyMove(3,2),true);
-         assertEquals(testQueen.verifyMove(3,5),true);
-         assertEquals(testQueen.verifyMove(6,4),true);
-         assertEquals(testQueen.verifyMove(1,4),true);
+         System.out.println("X is " + testBishop.getX() + " , Y is " + testBishop.getY());
+         assertEquals(testBishop.verifyMove(3,2),false);
+         assertEquals(testBishop.verifyMove(3,5),false);
+         assertEquals(testBishop.verifyMove(6,4),false);
+         assertEquals(testBishop.verifyMove(1,4),false);
          
      
      }
@@ -106,8 +106,8 @@ public class QueenTests {
  
          // Setup starting board
          Board startingBoard = new Board();
-         Queen testQueen = new Queen("t", startingBoard);
-         startingBoard.getTiles()[4][3].setPiece(testQueen);
+         Bishop testBishop = new Bishop("t", startingBoard);
+         startingBoard.getTiles()[4][3].setPiece(testBishop);
          startingBoard.movePiece(4,6,4,4);
          startingBoard.movePiece(2,1,2,4);
     
@@ -116,11 +116,11 @@ public class QueenTests {
         System.out.print(startingBoard.toString());
        
 
-        System.out.println("X is " + testQueen.getX() + " , Y is " + testQueen.getY());
-        assertEquals(testQueen.verifyMove(3,0),false);
-        assertEquals(testQueen.verifyMove(3,6),false);
-        assertEquals(testQueen.verifyMove(6,4),false);
-        assertEquals(testQueen.verifyMove(0,4),false);
+        System.out.println("X is " + testBishop.getX() + " , Y is " + testBishop.getY());
+        assertEquals(testBishop.verifyMove(3,0),false);
+        assertEquals(testBishop.verifyMove(3,6),false);
+        assertEquals(testBishop.verifyMove(6,4),false);
+        assertEquals(testBishop.verifyMove(0,4),false);
         
     
     }
