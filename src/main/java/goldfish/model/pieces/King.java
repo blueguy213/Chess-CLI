@@ -25,6 +25,9 @@ public class King extends Piece {
         boolean inRange = (Math.abs(x - this.getX()) <= 1 && Math.abs(y - this.getY()) <= 1);
 
         return inRange && !stayingStill && !this.isEnemyAttacking(x, y);
+
+
+        
     }
 
 
@@ -39,6 +42,17 @@ public class King extends Piece {
     public boolean putsKingInCheck(int x, int y) {
         return false;
     }
+//    0  1  2  3  4  5  6  7 
+// 0  bR bN bB bQ bK bB bN bR 8
+// 1  bp bp bp bp bp bp bp bp 7
+// 2     ##    ##    ##    ## 6
+// 3  ##    ##    ##    ##    5
+// 4     ##    ##    ##    ## 4
+// 5  ##    ##    ##    ##    3 
+// 6  wp wp wp wp wp wp wp wp 2
+// 7  wR wN wB wQ wK wB wN wR 1
+//     a  b  c  d  e  f  g  h
+ 
 
     /**
      * Checks if the king can castle with the rook on the left/right side of the board.
@@ -47,10 +61,45 @@ public class King extends Piece {
      * @return boolean
      */
     public boolean verifyCastle(boolean isLeft){
-        // check if rook and king haven't moved
-        // make sure no pieces between rook and king
+        
         // not in check 
+        if (this.getPlayer().isCheck()){
+            return false;
+        }
 
+        if (isLeft){ // if left side of board castle
+
+            if(this.getColor().equals('w')){ // if white
+                if ((this.hasMoved== false) && (this.getBoard().getWhite().getRooks()[0].hasMoved)==false){ // king and left rook haven't moved
+                    if((this.getBoard().isOccupied(1, 7) == 0) && (this.getBoard().isOccupied(2,7) == 0)){ // no pieces in between
+                        return true;
+                    }
+                }
+            }
+            if(this.getColor().equals('b')){ // if black
+                if ((this.hasMoved== false) && (this.getBoard().getBlack().getRooks()[0].hasMoved)==false){// king and left rook haven't moved
+                    if((this.getBoard().isOccupied(1, 0) == 0) && (this.getBoard().isOccupied(2, 0) == 0)){ // no pieces in between
+                        return true;
+                    }
+                }
+            }
+        } else { // if right side of board castle
+            if(this.getColor().equals('w')){ // if white
+                if ((this.hasMoved== false) && (this.getBoard().getWhite().getRooks()[1].hasMoved)==false){ // king and right rook haven't moved
+                    if((this.getBoard().isOccupied(5, 7) == 0) && (this.getBoard().isOccupied(6, 7) == 0)){ // no pieces in between
+                        return true;
+                    }
+                }
+            }
+            if(this.getColor().equals('b')){ // if black
+                if ((this.hasMoved== false) && (this.getBoard().getBlack().getRooks()[1].hasMoved)==false){ // king and right rook haven't moved
+                    if((this.getBoard().isOccupied(5, 0) == 0) && (this.getBoard().isOccupied(6, 0) == 0)){ // no pieces in between
+                        return true;
+                    }
+                }
+            }
+        }
+       
         return false;
 
     }

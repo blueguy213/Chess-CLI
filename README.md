@@ -34,8 +34,8 @@ SP:
 [X] Test Rook
 [X] Test Bishop
 [X] Test Queen
-[SP] Test Knight
-[SP] In Tile.setPiece() method should we update the coridnates of piece
+[X] Test Knight
+[X] In Tile.setPiece() method we should update the coridnates of piece
 [X]  In Piece should we add setX() and setY() methods
 [SP] Implement verfiyCastle in King
 [SP] Implement draw/draw?
