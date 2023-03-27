@@ -46,8 +46,8 @@ SK:
 [SK] Game Loop
 [SK] Test Game Loop
 [SK] Test Input Verification
-[SK] Test verifyMove in King
-[SK] Test verfiyCastle in King
+[SK] Test verifyMove/verifyCastle in King
+[SK] Test Check/Checkmate
 [SK] Write 5 Tests
 
 _______________________________________________________________________________________________________
