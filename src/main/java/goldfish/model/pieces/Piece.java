@@ -143,7 +143,7 @@ public abstract class Piece {
      * @return
      */
     public boolean isEnemyAttacking(int x, int y) {
-        System.err.println(player);
+        // System.err.println(player);
         return player.getOpponent().isAttacking(x, y);
     }
 

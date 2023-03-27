@@ -32,18 +32,18 @@ public class Bishop extends Piece{
         int currX = this.getX();
         int currY = this.getY();
 
-       System.out.println("destX is " + destX + ", destY is " + destY);
+       // System.out.println("destX is " + destX + ", destY is " + destY);
         // See if move is valid move for a bishop
         // can move diagonal 
         if (Math.abs(currY - destY) != Math.abs(currX - destX)) { // checks is dest is not in diagonal of curr
-            System.out.println("Not valid bishop move");
+            // System.out.println("Not valid bishop move");
             return false;
         }
         
          // if destination has same color piece as curr--> false 
          if (((getBoard().isOccupied(destX, destY)) != 0) && // dest tile is not empty and colors of curr and next tiles are same 
          (getBoard().isOccupied(currX, currY) == getBoard().isOccupied(destX, destY))){
-            System.out.println("distination same color");
+            // System.out.println("distination same color");
             
             return false;
         }
@@ -59,7 +59,7 @@ public class Bishop extends Piece{
             // check if there is piece on this tile
            
             if ((getBoard().isOccupied(col,row) != 0) && (!(row == currY && col == currX))){ // if tile is occuipied return false
-                System.out.println("Occupied at tile (" + col + " , " + row + ")");
+                // System.out.println("Occupied at tile (" + col + " , " + row + ")");
                 return false;    
             }
 

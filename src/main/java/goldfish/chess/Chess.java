@@ -50,7 +50,7 @@ public class Chess {
     public static void runGame() {
 
         // Print the starting board
-        System.out.println(board);
+        System.out.print(board);
 
         while (gameRunning) {
 

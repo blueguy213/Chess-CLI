@@ -23,7 +23,6 @@ public class GameLoopTests {
         Board board = new Board();
         boolean gameRunning = true;
         Player currentPlayer = board.getWhite();
-        int src_x = 0, src_y = 0, dest_x = 0, dest_y = 0;
         String promotionType;
 
         String testOutput = "";
@@ -41,12 +40,13 @@ public class GameLoopTests {
                 }
                 // Get input
                 String input = testInput.nextLine();
+                testOutput += input + "\n";
                 // Parse input into internal units
                 Chess.parseInput(input);
             } while (!Chess.isValidMove()); // Loop until valid input is given
 
             // Move piece
-            board.movePiece(src_x, src_y, dest_x, dest_y);
+            board.movePiece(Chess.src_x, Chess.src_y, Chess.dest_x, Chess.dest_y);
 
             // Draw board
             testOutput += board;
@@ -70,7 +70,6 @@ public class GameLoopTests {
                 }
             }
         }
-
         return testOutput;
     }
 
@@ -78,24 +77,35 @@ public class GameLoopTests {
      * Rigorous Test :-)
      */
     @Test
-    public void testFirstEntry() {
-        String testInput = "";
+    public void testPawnOneMoveOne() {
+        String testInput = "a2 a3";
 
-        String expectedOutput = """
+        String expectedOutput = 
+"""
 
 bR bN bB bQ bK bB bN bR 8
 bp bp bp bp bp bp bp bp 7
    ##    ##    ##    ## 6
 ##    ##    ##    ##    5
    ##    ##    ##    ## 4
-##    ##    ##    ##    3 
+##    ##    ##    ##    3
 wp wp wp wp wp wp wp wp 2
 wR wN wB wQ wK wB wN wR 1
  a  b  c  d  e  f  g  h
 
-White's move: 
-""";
+White's move: a2 a3
 
+bR bN bB bQ bK bB bN bR 8
+bp bp bp bp bp bp bp bp 7
+   ##    ##    ##    ## 6
+##    ##    ##    ##    5
+   ##    ##    ##    ## 4
+wp    ##    ##    ##    3
+   wp wp wp wp wp wp wp 2
+wR wN wB wQ wK wB wN wR 1
+ a  b  c  d  e  f  g  h
+
+""";
         Scanner testScanner = new Scanner(testInput);
         String testOutput = runTestGame(testScanner);
 
