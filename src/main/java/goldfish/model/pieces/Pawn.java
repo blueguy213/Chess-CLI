@@ -9,6 +9,7 @@ public class Pawn extends Piece {
         }
 
         /** 
+         * 
          * @param x
          * @param y
          * @return boolean
@@ -28,10 +29,14 @@ public class Pawn extends Piece {
                     }
                 }
             }
-            
             return false;
         }
 
+        /**
+         * 
+         * @param x x coordinate of the piece
+         * @param y y coordinate of the piece
+         */
         @Override
         public boolean putsKingInCheck(int x, int y) {
             // TODO Auto-generated method stub

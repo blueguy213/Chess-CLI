@@ -8,6 +8,12 @@ import goldfish.model.pieces.Piece;
 import goldfish.model.pieces.Queen;
 import goldfish.model.pieces.Rook;
 
+/**
+ * The board class: Has a 2D array of tiles, two players (white and black), and a turn.
+ * 
+ * @author Goldfish
+ *
+ */
 public class Board {
     
     // The tiles is a 2D array of tiles (each tile has a piece on it)
@@ -118,15 +124,6 @@ public class Board {
 
     /**
      * Prints the tiles in the format described in the assignment
-     * bR bN bB bQ bK bB bN bR 8
-     * bp bp bp bp bp bp bp bp 7
-     *    ##    ##    ##    ## 6
-     * ##    ##    ##    ##    5
-     *    ##    ##    ##    ## 4
-     * ##    ##    ##    ##    3 
-     * wp wp wp wp wp wp wp wp 2
-     * wR wN wB wQ wK wB wN wR 1
-     *  a  b  c  d  e  f  g  h
      * @return String
      */
     @Override
@@ -184,5 +181,9 @@ public class Board {
 
     public Piece getPiece(int x, int y) {
         return tiles[y][x].getPiece();
+    }
+
+    public void incrementTurn() {
+        turn++;
     }
 }

@@ -40,10 +40,10 @@ SP:
 [SP] Implement verfiyCastle in King
 
 SK:
-[SK] Implement verifyMove in King
-[SK] Check/ Checkmate
-[SK] Input Varifictaion
-[SK] Game Loop
+[X] Implement verifyMove in King
+[X] Check/ Checkmate
+[X] Input Varifictaion
+[X] Game Loop
 [SK] Test Game Loop
 [SK] Test Input Verification
 [SK] Test verifyMove/verifyCastle in King
