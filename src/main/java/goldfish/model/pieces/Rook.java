@@ -37,7 +37,7 @@ public class Rook extends Piece{
         
         // See if move is valid move for a rook
         if (!((destX == currX) && (destY != currY)) || ((destX != currX)) && (destY == currY)) {
-            System.out.println(destX + " " + currX);
+            System.out.println("A: invlaid rook move");
             return false;
         } 
 
@@ -45,6 +45,7 @@ public class Rook extends Piece{
         // if destination has same color piece as --> false 
         if (((getBoard().isOccupied(destX, destY)) != 0) && // dest tile is not empty and colors of curr and next tiles are same 
                 (getBoard().isOccupied(currX, currY) == getBoard().isOccupied(destX, destY))){
+            System.out.println(string)
             return false;
         }
 
