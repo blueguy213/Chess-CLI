@@ -23,8 +23,10 @@ public class Tile {
     }
 
     public void setPiece(Piece piece) {
-        piece.setX(x);
-        piece.setY(y);
+        if (piece != null){
+            piece.setX(x);
+            piece.setY(y);
+        }
         this.piece = piece;
     }
     @Override
