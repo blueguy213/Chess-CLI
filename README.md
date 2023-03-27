@@ -30,6 +30,9 @@ ________________________________________________________________________________
 [SP] Implement verifyMove in Queen
 [SP] Implement verifyMove in Knight
 [SP] Write 5 Tests
+[SP] Test Rook
+[SP] In Tile.setPiece() method should we update the coridnates of piece
+[X] In Piece should we add setX() and setY() methods
 
 [SK] Implement verifyMove in King
 [SK] Check/ Checkmate

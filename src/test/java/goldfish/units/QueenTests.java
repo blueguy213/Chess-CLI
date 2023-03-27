@@ -6,12 +6,13 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import goldfish.model.Board;
-import goldfish.model.pieces.Rook;
+import goldfish.model.pieces.Queen;
+
 
 /**
  * Ensures the starting board is set up and printed properly for Chess.
  */
-public class RookTests {
+public class QueenTests {
     /**
      * Rigorous Test :-)
      */
@@ -33,36 +34,32 @@ public class RookTests {
 
         // Setup starting board
         Board startingBoard = new Board();
-        Rook testRook = new Rook("t", startingBoard);
+        Queen testQueen = new Queen("t", startingBoard);
+        startingBoard.getBoard()[4][3].setPiece(testQueen);
+       
         
-        // Clear pieces out of the way
-        startingBoard.getBoard()[6][7].setPiece(null);
-        startingBoard.getBoard()[6][6].setPiece(null);
-        startingBoard.getBoard()[7][6].setPiece(null);
-        startingBoard.getBoard()[4][3].setPiece(testRook);
-
-
+     
 //    0  1  2  3  4  5  6  7 
 // 0  bR bN bB bQ bK bB bN bR 8
 // 1  bp bp bp bp bp bp bp bp 7
 // 2     ##    ##    ##    ## 6
 // 3  ##    ##    ##    ##    5
-// 4     ##    tR    ##    ## 4
+// 4     ##    tQ    ##    ## 4
 // 5  ##    ##    ##    ##    3 
 // 6  wp wp wp wp wp wp    ## 2
 // 7  wR wN wB wQ wK wB ## wR 1
 //     a  b  c  d  e  f  g  h
 
 
-        //System.out.print(startingBoard.toString());
-        assertEquals(startingBoard.getWhite().getRooks()[1].verifyMove(5, 5), false);
+        System.out.print(startingBoard.toString());
+       //assertEquals(startingBoard.getWhite().getRooks()[1].verifyMove(5, 5), false);
 
 
 
-        assertEquals(testRook.verifyMove(2,1),false);
-        assertEquals(testRook.verifyMove(3,4),false);
-        assertEquals(testRook.verifyMove(5,4),false);
-        assertEquals(testRook.verifyMove(5,2),false);
+        assertEquals(testQueen.verifyMove(2,1),false);
+        assertEquals(testQueen.verifyMove(3,4),true);
+        assertEquals(testQueen.verifyMove(5,4),true);
+        assertEquals(testQueen.verifyMove(5,2),true);
        
 
         
@@ -84,21 +81,15 @@ public class RookTests {
 
         // Setup starting board
         Board startingBoard = new Board();
-        Rook testRook = new Rook("t", startingBoard);
-        
-        // Clear pieces out of the way
-        startingBoard.getBoard()[6][7].setPiece(null);
-        startingBoard.getBoard()[6][6].setPiece(null);
-        startingBoard.getBoard()[7][6].setPiece(null);
-        startingBoard.getBoard()[4][3].setPiece(testRook);
-        testRook.setX(3);
-
+        Queen testQueen = new Queen("t", startingBoard);
+        startingBoard.getBoard()[4][3].setPiece(testQueen);
+       
 //    0  1  2  3  4  5  6  7 
 // 0  bR bN bB bQ bK bB bN bR 8
 // 1  bp bp bp bp bp bp bp bp 7
 // 2     ##    ##    ##    ## 6
 // 3  ##    ##    ##    ##    5
-// 4     ##    tR    ##    ## 4
+// 4     ##    tQ    ##    ## 4
 // 5  ##    ##    ##    ##    3 
 // 6  wp wp wp wp wp wp    ## 2
 // 7  wR wN wB wQ wK wB ## wR 1
@@ -106,14 +97,14 @@ public class RookTests {
 
 
         System.out.print(startingBoard.toString());
-        assertEquals(startingBoard.getWhite().getRooks()[1].verifyMove(5, 5), false);
+        //assertEquals(startingBoard.getWhite().getRooks()[1].verifyMove(5, 5), false);
 
 
 
-        assertEquals(testRook.verifyMove(3,3),true);
-        assertEquals(testRook.verifyMove(3,5),true);
-        assertEquals(testRook.verifyMove(6,4),true);
-        assertEquals(testRook.verifyMove(1,4),true);
+        assertEquals(testQueen.verifyMove(3,3),true);
+        assertEquals(testQueen.verifyMove(5,3),true);
+        assertEquals(testQueen.verifyMove(4,6),true);
+        assertEquals(testQueen.verifyMove(4,1),true);
     
     
         

@@ -37,8 +37,19 @@ public class Rook extends Piece{
         
         // See if move is valid move for a rook
         if (!((destX == currX) && (destY != currY)) || ((destX != currX)) && (destY == currY)) {
+            System.out.println(destX + " " + currX);
             return false;
         } 
+
+
+        // if destination has same color piece as --> false 
+        if (((getBoard().isOccupied(destX, destY)) != 0) && // dest tile is not empty and colors of curr and next tiles are same 
+                (getBoard().isOccupied(currX, currY) == getBoard().isOccupied(destX, destY))){
+            return false;
+        }
+      
+
+
         // check for pieces in middle of path
 
         // check up/down:
@@ -80,12 +91,6 @@ public class Rook extends Piece{
             }   
          }
 
-        // if destination has same color piece as --> false 
-        if (((getBoard().isOccupied(destX, destY)) != 0) && // dest tile is not empty and colors of curr and next tiles are same 
-                (getBoard().isOccupied(currX, currY) == getBoard().isOccupied(destX, destY))){
-            return false;
-        }
-      
         return true;
         // new pos must have same x diff y, or same y diff x
         // 
