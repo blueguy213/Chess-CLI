@@ -33,4 +33,14 @@ public class King extends Piece {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'putsKingInCheck'");
     }
+
+
+    public boolean verifyCastle(boolean isLeft){
+        // check if rook and king haven't moved
+        // make sure no pieces between rook and king
+        // not in check 
+
+        return false;
+
+    }
 }
