@@ -61,7 +61,7 @@ public class RookTests {
 
         assertEquals(testRook.verifyMove(2, 1), false);
         assertEquals(testRook.verifyMove(3, 4), false);
-        assertEquals(testRook.verifyMove(5, 4), false);
+        assertEquals(testRook.verifyMove(4, 5), false);
         assertEquals(testRook.verifyMove(5, 2), false);
        
 

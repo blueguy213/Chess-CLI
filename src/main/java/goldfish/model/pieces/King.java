@@ -3,8 +3,12 @@ package goldfish.model.pieces;
 import goldfish.model.Board;
 
 public class King extends Piece {
+    
+    boolean hasMoved = false;
+   
     public King(String color, Board board) {
         super(color, "K", board);
+
     }
     
     /** 
