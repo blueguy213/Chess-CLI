@@ -36,10 +36,10 @@ SP:
 [X] Test Queen
 [X] Test Knight
 [X] In Tile.setPiece() method we should update the coridnates of piece
-[X]  In Piece should we add setX() and setY() methods
-[SP] Implement verfiyCastle in King
-[SP] Implement draw/draw?
-[SP] Implement resign
+[X] In Piece should we add setX() and setY() methods
+[X] Implement verfiyCastle in King
+[X] Implement draw/draw?
+[X] Implement resign
 
 
 SK:
