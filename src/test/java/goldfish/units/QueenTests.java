@@ -35,7 +35,7 @@ public class QueenTests {
         // Setup starting board
         Board startingBoard = new Board();
         Queen testQueen = new Queen("t", startingBoard);
-        startingBoard.getBoard()[4][3].setPiece(testQueen);
+        startingBoard.getTiles()[4][3].setPiece(testQueen);
        
         
      
@@ -80,7 +80,7 @@ public class QueenTests {
         // Setup starting board
         Board startingBoard = new Board();
         Queen testQueen = new Queen("t", startingBoard);
-        startingBoard.getBoard()[4][3].setPiece(testQueen);
+        startingBoard.getTiles()[4][3].setPiece(testQueen);
        
 //    0  1  2  3  4  5  6  7 
 // 0  bR bN bB bQ bK bB bN bR 8

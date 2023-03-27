@@ -44,12 +44,10 @@ public class Rook extends Piece{
 
         // if destination has same color piece as --> false 
         if (((getBoard().isOccupied(destX, destY)) != 0) && // dest tile is not empty and colors of curr and next tiles are same 
-                (getBoard().isOccupied(currX, currY) == getBoard().isOccupied(destX, destY))){
-           // System.out.println(string)
+                (getBoard().isOccupied(currX, currY) == getBoard().isOccupied(destX, destY))) {
+            // System.out.println(string);
             return false;
         }
-      
-
 
         // check for pieces in middle of path
 

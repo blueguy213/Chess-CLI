@@ -10,8 +10,8 @@ import goldfish.model.pieces.Rook;
 
 public class Board {
     
-    // The board is a 2D array of tiles (each tile has a piece on it)
-    private Tile[][] board;
+    // The tiles is a 2D array of tiles (each tile has a piece on it)
+    private Tile[][] tiles;
     // The players
     private Player white;
     private Player black;
@@ -19,84 +19,84 @@ public class Board {
     private int turn;
     
     /**
-     * Constructor for the board
-     * Creates the board and sets up the pieces
+     * Constructor for the tiles
+     * Creates the tiles and sets up the pieces
      */
     public Board() {
-        board = new Tile[8][8];
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                board[i][j] = new Tile(j, i);
+        tiles = new Tile[8][8];
+        for (int i = 0; i < tiles.length; i++) {
+            for (int j = 0; j < tiles[i].length; j++) {
+                tiles[i][j] = new Tile(j, i);
                 if (i == 1) {
-                    board[i][j].setPiece(new Pawn("b", this));
+                    tiles[i][j].setPiece(new Pawn("b", this));
                 } else if (i == 6) {
-                    board[i][j].setPiece(new Pawn("w", this));
+                    tiles[i][j].setPiece(new Pawn("w", this));
                 } else if (i == 0) {
                     if (j == 0 || j == 7) {
-                        board[i][j].setPiece(new Rook("b", this));
+                        tiles[i][j].setPiece(new Rook("b", this));
                     } else if (j == 1 || j == 6) {
-                        board[i][j].setPiece(new Knight("b", this));
+                        tiles[i][j].setPiece(new Knight("b", this));
                     } else if (j == 2 || j == 5) {
-                        board[i][j].setPiece(new Bishop("b", this));
+                        tiles[i][j].setPiece(new Bishop("b", this));
                     } else if (j == 3) {
-                        board[i][j].setPiece(new Queen("b", this));
+                        tiles[i][j].setPiece(new Queen("b", this));
                     } else if (j == 4) {
-                        board[i][j].setPiece(new King("b", this));
+                        tiles[i][j].setPiece(new King("b", this));
                     }
                 } else if (i == 7) {
                     if (j == 0 || j == 7) {
-                        board[i][j].setPiece(new Rook("w", this));
+                        tiles[i][j].setPiece(new Rook("w", this));
                     } else if (j == 1 || j == 6) {
-                        board[i][j].setPiece(new Knight("w", this));
+                        tiles[i][j].setPiece(new Knight("w", this));
                     } else if (j == 2 || j == 5) {
-                        board[i][j].setPiece(new Bishop("w", this));
+                        tiles[i][j].setPiece(new Bishop("w", this));
                     } else if (j == 3) {
-                        board[i][j].setPiece(new Queen("w", this));
+                        tiles[i][j].setPiece(new Queen("w", this));
                     } else if (j == 4) {
-                        board[i][j].setPiece(new King("w", this));
+                        tiles[i][j].setPiece(new King("w", this));
                     }
                 }
             }
         }
 
-        // Instantiate players using pieces from board
+        // Instantiate players using pieces from tiles
         white = new Player(
             "w",
             black,
-            (King) board[7][4].getPiece(), 
-            (Queen) board[7][3].getPiece(),
-            new Rook[] { (Rook) board[7][0].getPiece(), (Rook) board[7][7].getPiece() },
-            new Bishop[] { (Bishop) board[7][2].getPiece(), (Bishop) board[7][5].getPiece() },
-            new Knight[] { (Knight) board[7][1].getPiece(), (Knight) board[7][6].getPiece() },
+            (King) tiles[7][4].getPiece(), 
+            (Queen) tiles[7][3].getPiece(),
+            new Rook[] { (Rook) tiles[7][0].getPiece(), (Rook) tiles[7][7].getPiece() },
+            new Bishop[] { (Bishop) tiles[7][2].getPiece(), (Bishop) tiles[7][5].getPiece() },
+            new Knight[] { (Knight) tiles[7][1].getPiece(), (Knight) tiles[7][6].getPiece() },
             new Pawn[] { 
-                (Pawn) board[6][0].getPiece(),
-                (Pawn) board[6][1].getPiece(),
-                (Pawn) board[6][2].getPiece(),
-                (Pawn) board[6][3].getPiece(),
-                (Pawn) board[6][4].getPiece(),
-                (Pawn) board[6][5].getPiece(),
-                (Pawn) board[6][6].getPiece(),
-                (Pawn) board[6][7].getPiece()
+                (Pawn) tiles[6][0].getPiece(),
+                (Pawn) tiles[6][1].getPiece(),
+                (Pawn) tiles[6][2].getPiece(),
+                (Pawn) tiles[6][3].getPiece(),
+                (Pawn) tiles[6][4].getPiece(),
+                (Pawn) tiles[6][5].getPiece(),
+                (Pawn) tiles[6][6].getPiece(),
+                (Pawn) tiles[6][7].getPiece()
             }
         );
 
         black = new Player(
             "b",
             white,
-            (King) board[0][4].getPiece(), 
-            (Queen) board[0][3].getPiece(),
-            new Rook[] { (Rook) board[0][0].getPiece(), (Rook) board[0][7].getPiece() },
-            new Bishop[] { (Bishop) board[0][2].getPiece(), (Bishop) board[0][5].getPiece() },
-            new Knight[] { (Knight) board[0][1].getPiece(), (Knight) board[0][6].getPiece() },
+            (King) tiles[0][4].getPiece(), 
+            (Queen) tiles[0][3].getPiece(),
+            new Rook[] { (Rook) tiles[0][0].getPiece(), (Rook) tiles[0][7].getPiece() },
+            new Bishop[] { (Bishop) tiles[0][2].getPiece(), (Bishop) tiles[0][5].getPiece() },
+            new Knight[] { (Knight) tiles[0][1].getPiece(), (Knight) tiles[0][6].getPiece() },
             new Pawn[] { 
-                (Pawn) board[1][0].getPiece(),
-                (Pawn) board[1][1].getPiece(),
-                (Pawn) board[1][2].getPiece(),
-                (Pawn) board[1][3].getPiece(),
-                (Pawn) board[1][4].getPiece(),
-                (Pawn) board[1][5].getPiece(),
-                (Pawn) board[1][6].getPiece(),
-                (Pawn) board[1][7].getPiece()
+                (Pawn) tiles[1][0].getPiece(),
+                (Pawn) tiles[1][1].getPiece(),
+                (Pawn) tiles[1][2].getPiece(),
+                (Pawn) tiles[1][3].getPiece(),
+                (Pawn) tiles[1][4].getPiece(),
+                (Pawn) tiles[1][5].getPiece(),
+                (Pawn) tiles[1][6].getPiece(),
+                (Pawn) tiles[1][7].getPiece()
             }
         );
         // Set turn to white
@@ -106,18 +106,18 @@ public class Board {
     /** 
      * @return Tile[][]
      */
-    public Tile[][] getBoard() {
-        return board;
+    public Tile[][] getTiles() {
+        return tiles;
     }
 
     // Move the piece at (x, y) to (newX, newY)
     public void movePiece(int x, int y, int newX, int newY) {
-        board[newY][newX].setPiece(board[y][x].getPiece());
-        board[y][x].setPiece(null);
+        tiles[newY][newX].setPiece(tiles[y][x].getPiece());
+        tiles[y][x].setPiece(null);
     }
 
     /**
-     * Prints the board in the format described in the assignment
+     * Prints the tiles in the format described in the assignment
      * bR bN bB bQ bK bB bN bR 8
      * bp bp bp bp bp bp bp bp 7
      *    ##    ##    ##    ## 6
@@ -131,24 +131,24 @@ public class Board {
      */
     @Override
     public String toString() {
-        String boardString = "\n";
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j].isOccupied()) {
-                    boardString += board[i][j].toString();
+        String tilesString = "\n";
+        for (int i = 0; i < tiles.length; i++) {
+            for (int j = 0; j < tiles[i].length; j++) {
+                if (tiles[i][j].isOccupied()) {
+                    tilesString += tiles[i][j].toString();
                 } else {
                     if ((i + j) % 2 == 0) {
-                        boardString += "  ";
+                        tilesString += "  ";
                     } else {
-                        boardString += "##";
+                        tilesString += "##";
                     }
                 }
-                boardString += " ";
+                tilesString += " ";
             }
-            boardString += Integer.toString(8 - i) + "\n";
+            tilesString += Integer.toString(8 - i) + "\n";
         }
-        boardString += " a  b  c  d  e  f  g  h\n\n";
-        return boardString;
+        tilesString += " a  b  c  d  e  f  g  h\n\n";
+        return tilesString;
     }
 
     
@@ -171,8 +171,8 @@ public class Board {
      * @return 
      */
     public int isOccupied(int x, int y) {
-        if (board[y][x].isOccupied()) {
-            if (board[y][x].getPiece().getColor().equals("w")) {
+        if (tiles[y][x].isOccupied()) {
+            if (tiles[y][x].getPiece().getColor().equals("w")) {
                 return 1;
             } else {
                 return 2;
@@ -183,6 +183,6 @@ public class Board {
     }
 
     public Piece getPiece(int x, int y) {
-        return board[y][x].getPiece();
+        return tiles[y][x].getPiece();
     }
 }
