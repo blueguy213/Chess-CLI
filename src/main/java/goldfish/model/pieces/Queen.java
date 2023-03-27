@@ -1,6 +1,10 @@
 package goldfish.model.pieces;
 import goldfish.model.Board;
 
+/**
+ * The Queen class represents a queen in the game of chess
+ * @author Shreeti Patel and Sree Kommalapati
+ */
 public class Queen extends Piece{
     public Queen(String color, Board board) {
         super(color, "Q", board);

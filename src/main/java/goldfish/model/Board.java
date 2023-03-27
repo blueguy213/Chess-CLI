@@ -10,7 +10,7 @@ import goldfish.model.pieces.Rook;
 
 /**
  * The board class: Has a 2D array of tiles, two players (white and black), and a turn.
- * @author Goldfish
+ * @author Sree Kommalapati and Shreeti Patel
  */
 public class Board {
     
@@ -66,12 +66,20 @@ public class Board {
         // Instantiate players using pieces from tiles
         white = new Player(
             "w",
-            black,
             (King) tiles[7][4].getPiece(), 
             (Queen) tiles[7][3].getPiece(),
-            new Rook[] { (Rook) tiles[7][0].getPiece(), (Rook) tiles[7][7].getPiece() },
-            new Bishop[] { (Bishop) tiles[7][2].getPiece(), (Bishop) tiles[7][5].getPiece() },
-            new Knight[] { (Knight) tiles[7][1].getPiece(), (Knight) tiles[7][6].getPiece() },
+            new Rook[] { 
+                (Rook) tiles[7][0].getPiece(), 
+                (Rook) tiles[7][7].getPiece() 
+            },
+            new Bishop[] {
+                (Bishop) tiles[7][2].getPiece(),
+                (Bishop) tiles[7][5].getPiece()
+            },
+            new Knight[] {
+                (Knight) tiles[7][1].getPiece(),
+                (Knight) tiles[7][6].getPiece()
+            },
             new Pawn[] { 
                 (Pawn) tiles[6][0].getPiece(),
                 (Pawn) tiles[6][1].getPiece(),
@@ -83,15 +91,19 @@ public class Board {
                 (Pawn) tiles[6][7].getPiece()
             }
         );
-
         black = new Player(
             "b",
-            white,
             (King) tiles[0][4].getPiece(), 
             (Queen) tiles[0][3].getPiece(),
             new Rook[] { (Rook) tiles[0][0].getPiece(), (Rook) tiles[0][7].getPiece() },
-            new Bishop[] { (Bishop) tiles[0][2].getPiece(), (Bishop) tiles[0][5].getPiece() },
-            new Knight[] { (Knight) tiles[0][1].getPiece(), (Knight) tiles[0][6].getPiece() },
+            new Bishop[] { 
+                (Bishop) tiles[0][2].getPiece(),
+                (Bishop) tiles[0][5].getPiece()
+            },
+            new Knight[] { 
+                (Knight) tiles[0][1].getPiece(),
+                (Knight) tiles[0][6].getPiece()
+            },
             new Pawn[] { 
                 (Pawn) tiles[1][0].getPiece(),
                 (Pawn) tiles[1][1].getPiece(),
@@ -103,6 +115,11 @@ public class Board {
                 (Pawn) tiles[1][7].getPiece()
             }
         );
+
+        // Set opponents
+        white.setOpponent(black);
+        black.setOpponent(white);
+
         // Set turn to white
         turn = 0;
     }

@@ -2,6 +2,10 @@ package goldfish.model.pieces;
 
 import goldfish.model.Board;
 
+/**
+ * The Pawn class represents a pawn in the game of chess
+ * @author Sree Kommalapati and Shreeti Patel
+ */
 public class Pawn extends Piece {
     
     /**
@@ -14,7 +18,7 @@ public class Pawn extends Piece {
     }
 
     /** 
-     * 
+     * Return true if the pawn can move to the given coordinates and false otherwise
      * @param x x coordinate of the piece
      * @param y y coordinate of the piece
      * @return boolean
@@ -26,7 +30,7 @@ public class Pawn extends Piece {
         } else {
             if (this.getColor().equals("w")) {
                 if (y == this.getY() - 1 || (y == this.getY() - 2 && !this.getHasMoved())) {
-                    return true;
+                    return getBoard().isOccupied(x, y) != 1;
                 }
             } else {
                 if (y == this.getY() + 1 || (y == this.getY() + 2 && !this.getHasMoved())) {

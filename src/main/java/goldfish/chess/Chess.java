@@ -3,6 +3,10 @@ package goldfish.chess;
 import goldfish.model.Board;
 import goldfish.model.Player;
 
+/**
+ * The Chess class represents the game of chess.
+ * @author Sree Kommalapati and Shreeti Patel
+ */
 public class Chess {
 
     // Set up game variables

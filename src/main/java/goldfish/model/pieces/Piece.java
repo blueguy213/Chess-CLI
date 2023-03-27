@@ -3,6 +3,10 @@ package goldfish.model.pieces;
 import goldfish.model.Board;
 import goldfish.model.Player;
 
+/**
+ * The Piece class represents a piece in the game of chess
+ * @author Sree Kommalapati and Shreeti Patel
+ */
 public abstract class Piece {
 
     // w = white, b = black

@@ -48,7 +48,7 @@ SK:
 [X] Input Varifictaion
 [X] Game Loop
 [SK] Pawn Promotion
-[SK] Pawn can move 2 squares from start
+[X] Pawn can move 2 squares from start
 [SK] En passant
 [SK] Test Game Loop
 [SK] Test Input Verification
