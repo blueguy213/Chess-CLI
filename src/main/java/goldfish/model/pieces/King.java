@@ -113,7 +113,25 @@ public class King extends Piece {
                         if(!(this.putsKingInCheck(2,7))&&(!(this.putsKingInCheck(3,7)))){  // 2 tiles on left of king not in check
                             return true;
                         }
-  
+                        // Check if the king is in check, if so return false. Then, move king to the left 1 space and check if it is in check. If it is in check, return false. If it is not in check, move the king to the left 1 space and check if it is in check. If it is in check, return false. If it is not in check, return true.
+                        if (this.getPlayer().isCheck()) {
+                            return false;
+                        } else {
+                            setX(getX() - 1);
+                            if (this.getPlayer().isCheck()) {
+                                setX(getX() + 1);
+                                return false;
+                            } else {
+                                setX(getX() - 1);
+                                if (this.getPlayer().isCheck()) {
+                                    setX(getX() + 2);
+                                    return false;
+                                } else {
+                                    setX(getX() + 2);
+                                    return true;
+                                }
+                            }
+                        }
                     }
                 }
             }

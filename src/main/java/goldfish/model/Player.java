@@ -154,6 +154,41 @@ public class Player {
      * @return true if the player is in checkmate, false otherwise
      */ 
     public boolean isCheckmate() {
+
+        if (!isCheck()) {
+            return false;
+        } else {
+            // Simulate king movement to any possible king moves and check if the king is still in check
+            for (int destX = king.getX() - 1; destX <= king.getX() + 1; destX++) {
+                for (int destY = king.getY() - 1; destY <= king.getY() + 1; destY++) {
+                    // Check if the square is on the board
+                    if (destX >= 0 && destX < 8 && destY >= 0 && destY < 8) {
+                        // Check if the king can move to the square
+                        if (king.verifyMove(destX, destY, false)) {
+                            // Swap the king with the piece at the destination square and save the piece for later
+                            Piece temp = king.getBoard().getPiece(destX, destY);
+                            king.getBoard().getTiles()[destY][destX].setPiece(king);
+                            king.getBoard().getTiles()[king.getY()][king.getX()].setPiece(null);
+                            temp.setX(king.getX());
+                            temp.setY(king.getY());
+                            king.setX(destX);
+                            king.setY(destY);
+                            // Check if the king is still in check
+                            if (!opponent.isAttacking(destX, destY)) {
+                                // Swap the king back to its original position
+                                king.getBoard().getTiles()[temp.getY()][temp.getX()].setPiece(king);
+                                king.getBoard().getTiles()[king.getY()][king.getX()].setPiece(temp);
+                                king.setX(temp.getX());
+                                king.setY(temp.getY());
+                                temp.setX(destX);
+                                temp.setY(destY);
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         // Check the 3x3 square around the king
         for (int x = king.getX() - 1; x <= king.getX() + 1; x++) {
             for (int y = king.getY() - 1; y <= king.getY() + 1; y++) {
@@ -199,13 +234,20 @@ public class Player {
      */
     public boolean isAttacking(int x, int y) {
 
-        boolean kingAttacking = king.verifyMove(x, y, false);
-        boolean queenAttacking = queen.verifyMove(x, y, false);
-        boolean rookAttacking = rooks[0].verifyMove(x, y, false) || rooks[1].verifyMove(x, y, false);
-        boolean bishopAttacking = bishops[0].verifyMove(x, y, false) || bishops[1].verifyMove(x, y, false);
-        boolean knightAttacking = knights[0].verifyMove(x, y, false) || knights[1].verifyMove(x, y, false);
-        boolean pawnAttacking = pawns[0].verifyMove(x, y, false) || pawns[1].verifyMove(x, y, false) || pawns[2].verifyMove(x, y, false) || pawns[3].verifyMove(x, y, false) || pawns[4].verifyMove(x, y, false) || pawns[5].verifyMove(x, y, false) || pawns[6].verifyMove(x, y, false) || pawns[7].verifyMove(x, y, false);
+        for (Piece p : nonKingPieces) {
+            if (p.verifyMove(x, y, false)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-        return kingAttacking || queenAttacking || rookAttacking || bishopAttacking || knightAttacking || pawnAttacking;
+    public void addPiece(Piece piece) {
+        Piece[] newPieces = new Piece[nonKingPieces.length + 1];
+        for (int i = 0; i < nonKingPieces.length; i++) {
+            newPieces[i] = nonKingPieces[i];
+        }
+        newPieces[nonKingPieces.length] = piece;
+        nonKingPieces = newPieces;
     }
 }
