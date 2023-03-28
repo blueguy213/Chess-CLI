@@ -243,4 +243,14 @@ public class Board {
     public void gameOver() {
         turn = -1;
     }
+
+    public void promote(int src_x, int src_y, Piece pawnReplacement) {
+        tiles[src_y][src_x].setPiece(null);
+        if (src_y == 1) {
+            tiles[0][src_x].setPiece(pawnReplacement);
+        } else {
+            tiles[7][src_x].setPiece(pawnReplacement);
+        }
+        
+    }
 }

@@ -156,20 +156,20 @@ public abstract class Piece {
     /**
      * Checks if the king will be in check after the move. True if the king will be in check, false otherwise.
      * Call at the end of verifyMove and only move true if this is false.
-     * @param x x coordinate of the piece
-     * @param y y coordinate of the piece
+     * @param destX destX coordinate of the piece
+     * @param destY destY coordinate of the piece
      * @return boolean
      */
-    public boolean putsKingInCheck(int x, int y) {
-        Piece oldPiece = getBoard().getPiece(x, y);
-        getBoard().movePiece(this.x, this.y, x, y);
+    public boolean putsKingInCheck(int destX, int destY) {
+        Piece oldPiece = getBoard().getPiece(destX, destY);
+        getBoard().movePiece(this.x, this.y, destX, destY);
         // Check if the king is still in check
 
         if (!getPlayer().isCheck()) {
-            getBoard().getTiles()[y][x].setPiece(oldPiece);
+            getBoard().getTiles()[destY][destX].setPiece(oldPiece);
             return false;
         }
-        getBoard().getTiles()[y][x].setPiece(oldPiece);
+        getBoard().getTiles()[destY][destX].setPiece(oldPiece);
         return true;
     }
 

@@ -1,9 +1,13 @@
 package goldfish.chess;
 
-import java.util.concurrent.CountDownLatch;
-
 import goldfish.model.Board;
 import goldfish.model.Player;
+import goldfish.model.pieces.Piece;
+import goldfish.model.pieces.Queen;
+import goldfish.model.pieces.Rook;
+import goldfish.model.pieces.Bishop;
+import goldfish.model.pieces.Knight;
+import goldfish.model.pieces.Pawn;
 
 /**
  * The Chess class represents the game of chess.
@@ -38,6 +42,7 @@ public class Chess {
             drawOffered = true;
             return;
          }
+         
          if(tokens[0].equals("resign")){ //if resign
             if(currentPlayer.getColor().equals("b")){
                 System.out.println("White wins");
@@ -61,6 +66,22 @@ public class Chess {
 
         if (tokens.length == 3) {
             promotionType = tokens[2];
+
+            Piece pawnReplacement = null;
+
+            if (promotionType.equals("Q")) {
+                pawnReplacement = new Queen("Q", board);
+            } else if (promotionType.equals("R")) {
+                pawnReplacement = new Rook("R", board);
+            } else if (promotionType.equals("B")) {
+                pawnReplacement = new Bishop("B", board);
+            } else if (promotionType.equals("N")) {
+                pawnReplacement = new Knight("N", board);
+            }
+
+            if (board.getPiece(src_x, src_y) instanceof Pawn && board.getTiles()[src_y][src_x].getPiece().verifyMove(dest_x, dest_y, true)) {
+                board.promote(src_x, src_y, pawnReplacement);
+            }
         }
     }
 

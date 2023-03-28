@@ -200,12 +200,22 @@ public class Player {
     public boolean isAttacking(int x, int y) {
 
         boolean kingAttacking = king.verifyMove(x, y, false);
-        boolean queenAttacking = queen.verifyMove(x, y, false);
-        boolean rookAttacking = rooks[0].verifyMove(x, y, false) || rooks[1].verifyMove(x, y, false);
-        boolean bishopAttacking = bishops[0].verifyMove(x, y, false) || bishops[1].verifyMove(x, y, false);
-        boolean knightAttacking = knights[0].verifyMove(x, y, false) || knights[1].verifyMove(x, y, false);
-        boolean pawnAttacking = pawns[0].verifyMove(x, y, false) || pawns[1].verifyMove(x, y, false) || pawns[2].verifyMove(x, y, false) || pawns[3].verifyMove(x, y, false) || pawns[4].verifyMove(x, y, false) || pawns[5].verifyMove(x, y, false) || pawns[6].verifyMove(x, y, false) || pawns[7].verifyMove(x, y, false);
 
-        return kingAttacking || queenAttacking || rookAttacking || bishopAttacking || knightAttacking || pawnAttacking;
+        for (Piece p : nonKingPieces) {
+            if (p.verifyMove(x, y, false)) {
+                return true;
+            }
+        }
+        
+        return kingAttacking;
+    }
+
+    public void addPiece(Piece piece) {
+        Piece[] newPieces = new Piece[nonKingPieces.length + 1];
+        for (int i = 0; i < nonKingPieces.length; i++) {
+            newPieces[i] = nonKingPieces[i];
+        }
+        newPieces[nonKingPieces.length] = piece;
+        nonKingPieces = newPieces;
     }
 }
