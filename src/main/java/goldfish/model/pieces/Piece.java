@@ -41,6 +41,8 @@ public abstract class Piece {
     private int x; 
     private int y;
 
+    private boolean isCaptured;
+
     /**
      * Superconstructor for objects that inherit the abstract Piece class.
      * @param color Color of the piece: w = white, b = black
