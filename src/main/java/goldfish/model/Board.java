@@ -230,7 +230,6 @@ public class Board {
      */
     public void incrementTurn() {
         turn++;
-        // System.out.println("Turn: " + turn);
     }
     /**
      * Returns turn

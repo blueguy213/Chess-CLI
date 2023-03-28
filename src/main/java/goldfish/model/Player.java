@@ -146,7 +146,6 @@ public class Player {
      * @return true if the player is in check, false otherwise
      */ 
     public boolean isCheck() {
-        System.out.println("Checking if " + this.king + " is in check: " + opponent.isAttacking(king.getX(), king.getY()));
         return opponent.isAttacking(king.getX(), king.getY());
     }
 
@@ -164,7 +163,6 @@ public class Player {
                 for (int destY = king.getY() - 1; destY <= king.getY() + 1; destY++) {
                     // Check if the square is on the board
                     if (destX >= 0 && destX < 8 && destY >= 0 && destY < 8) {
-                        System.out.println("destX = " + destX + ", destY = " + destY);
                         // Check if the king can move to the square
                         if (king.verifyMove(destX, destY, false)) {
                             // Swap the king with the piece at the destination square and save the piece for later
@@ -175,9 +173,6 @@ public class Player {
                             temp.setY(king.getY());
                             king.setX(destX);
                             king.setY(destY);
-
-                            System.out.println("Checking if king can move to (" + destX + ", " + destY + ")");
-                            System.out.println("Fake Middle Board: \n" + king.getBoard().toString());
 
                             // Check if the king is still in check
                             if (!opponent.isAttacking(destX, destY)) {
@@ -201,38 +196,6 @@ public class Player {
                 }
             }
         }
-        // // Check the 3x3 square around the king
-        // for (int x = king.getX() - 1; x <= king.getX() + 1; x++) {
-        //     for (int y = king.getY() - 1; y <= king.getY() + 1; y++) {
-        //         // Check if the square is on the board
-        //         if (x >= 0 && x < 8 && y >= 0 && y < 8) {
-        //             // Check if the king can move to the square
-        //             if (king.verifyMove(x, y, false)) {
-        //                 // Check if the king is still in check
-        //                 if (!opponent.isAttacking(x, y)) {
-        //                     return false;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-        // // Check if any other piece can move to any square on the board which will result in the king not being in check
-        // for (Piece piece : nonKingPieces) {
-        //     for (int x = 0; x < 8; x++) {
-        //         for (int y = 0; y < 8; y++) {
-        //             // Check if the piece can move to the square
-        //             if (piece.verifyMove(x, y, false)) {
-        //                 Piece oldPiece = piece.getBoard().getPiece(x, y);
-        //                 piece.getBoard().movePiece(piece.getX(), piece.getY(), x, y);
-        //                 // Check if the king is still in check
-        //                 if (!isCheck()) {
-        //                     piece.getBoard().getTiles()[y][x].setPiece(oldPiece);
-        //                     return false;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
 
         // King is in checkmate if all valid moves are still in check
         return true;
@@ -244,11 +207,10 @@ public class Player {
      * @param y the y coordinate of the square to check
      * @return true if the player is in stalemate, false otherwise
      */
-    public boolean isAttacking(int x, int y) {
+    public boolean isAttacking(int destX, int destY) {
 
         for (Piece p : nonKingPieces) {
-            if (p.verifyMove(x, y, false)) {
-                System.out.println("Piece " + p + " is attacking (" + x + ", " + y + ") from (" + p.getX() + ", " + p.getY() + ")");
+            if (p.verifyMove(destX, destY, false)) {
                 return true;
             }
         }
