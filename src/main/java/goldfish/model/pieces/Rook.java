@@ -24,10 +24,10 @@ public class Rook extends Piece {
  
 // TO DO: Implement the check if a piece of on the tile
 
-    /** 
-     * Verifiies if move is valid for the rook
-     * @param destX
-     * @param destY
+     /** 
+     * @param destX X value of destination tile
+     * @param destY Y value of destination tile
+     * @param real checks if method is being called from the Game loop
      * @return boolean
      */
     @Override

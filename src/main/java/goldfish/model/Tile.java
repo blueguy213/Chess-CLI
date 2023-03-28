@@ -3,8 +3,8 @@ package goldfish.model;
 import goldfish.model.pieces.Piece;
 
 /**
- * Tile class
- * @author Goldfish
+ * Tile class represnts a tile on a board, it holds a piece and has an x,y location 
+ * @author Sree Kommalapati and Shreeti Patel
  */
 public class Tile {
 

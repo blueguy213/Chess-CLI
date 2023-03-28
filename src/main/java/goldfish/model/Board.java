@@ -230,7 +230,7 @@ public class Board {
      */
     public void incrementTurn() {
         turn++;
-        System.out.println("Turn: " + turn);
+        // System.out.println("Turn: " + turn);
     }
 
     public int getRealTurn() {

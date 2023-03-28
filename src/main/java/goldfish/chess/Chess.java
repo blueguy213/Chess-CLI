@@ -106,7 +106,11 @@ public class Chess {
             return false;
         }
     }
-
+     /**
+     * Runs Chess Game.
+     * 
+     * @return
+     */
     public static void runGame() {
 
         // Print the starting board

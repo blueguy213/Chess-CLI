@@ -25,6 +25,12 @@ ________________________________________________________________________________
 _______________________________________________________________________________________________________
 
 # To Do:
+Check by Submit
+[]  blank line above and below any prompt/message your program will print, and the board itself.
+[]  No blank line between an attempted move, the illegal move warning, and the actual correct move
+[]  blank line between the board drawing and a move.
+
+
 SP:
 [X] Implement verifyMove in Rook
 [X] Implement verifyMove in Bishop

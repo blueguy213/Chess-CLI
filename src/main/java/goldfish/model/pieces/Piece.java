@@ -141,7 +141,7 @@ public abstract class Piece {
         if (turnMoved == -1) {
             turnMoved = turn;
         }
-        System.out.println(this.toString() + " moved on " + turnMoved);
+       
     }
 
     /**
@@ -177,8 +177,9 @@ public abstract class Piece {
 
     /**
      * Checks if the move is valid for the piece. True if valid, false if not.
-     * @param x x coordinate of the piece
-     * @param y y coordinate of the piece
+     * @param destX x coordinate of the piece
+     * @param destY y coordinate of the piece
+     * @param real checks if method is being called from the Game loop
      */
-    public abstract boolean verifyMove(int x, int y, boolean real);
+    public abstract boolean verifyMove(int destX , int destY, boolean real);
 }
