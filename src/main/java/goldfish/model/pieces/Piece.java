@@ -163,8 +163,12 @@ public abstract class Piece {
      * @return boolean
      */
     public boolean putsKingInCheck(int destX, int destY) {
+
+        int currX = getX();
+        int currY = getY();
+
         Piece oldPiece = getBoard().getPiece(destX, destY);
-        getBoard().movePiece(this.x, this.y, destX, destY);
+        getBoard().movePiece(currX, currY, destX, destY);
         // Check if the king is still in check
 
         if (!getPlayer().isCheck()) {
