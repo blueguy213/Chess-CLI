@@ -141,18 +141,22 @@ public class Chess {
             // Check white for checkmate if black just moved and vice versa
             if (board.getTurn() % 2 == 0) {
                 currentPlayer = board.getWhite();
-                if (board.getWhite().isCheckmate()) {
-                    System.out.println("Checkmate\nBlack wins");
-                    gameRunning = false;
-                } else if (board.getWhite().isCheck()) {
+                if (board.getWhite().isCheck()) {
+                    if (board.getWhite().isCheckmate()) {
+                        System.out.println("Checkmate\nBlack wins");
+                        gameRunning = false;
+                        continue;
+                    }
                     System.out.println("Check");
+                    continue;
                 }
             } else {
                 currentPlayer = board.getBlack();
-                if (board.getBlack().isCheckmate()) {
-                    System.out.println("Checkmate\nWhite wins");
-                    gameRunning = false;
-                } else if (board.getBlack().isCheck()) {
+                if (board.getBlack().isCheck()) {
+                    if (board.getBlack().isCheckmate()) {
+                        System.out.println("Checkmate\nWhite wins");
+                        gameRunning = false;
+                    }
                     System.out.println("Check");
                 }
             }

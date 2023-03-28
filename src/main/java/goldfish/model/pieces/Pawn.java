@@ -25,9 +25,6 @@ public class Pawn extends Piece {
      */
     @Override
     public boolean verifyMove(int destX, int destY, boolean real) {
-
-
-
         // Check if the X coordinate is the same or if it is one awadestY
         if (Math.abs(this.getX() - destX) > 1) {
             return false; // If it is more than one awadestY, it is not a valid move
@@ -51,25 +48,32 @@ public class Pawn extends Piece {
                     if (getBoard().isOccupied(destX, destY) == 2) {
                         return true;
                     }
-                    // SdestYstem.out.println("getBoard().getPiece(destX, destY + 1).toString().equals('bp'): " + getBoard().getPiece(destX, destY + 1).toString().equals("bp"));
-                    // SdestYstem.out.println("getBoard().getPiece(destX, destY + 1).getFirstMove(): " + getBoard().getPiece(destX, destY + 1).getFirstMove());
-                    // SdestYstem.out.println("getBoard().getTurn(): " + getBoard().getTurn());
                     if (getBoard().getPiece(destX, destY + 1).toString().equals("bp") && getBoard().getPiece(destX, destY + 1).getFirstMove() == getBoard().getRealTurn() - 1) {
                         if (real) {
                             getBoard().getTiles()[destY+1][destX].setPiece(null);
-                        }
-                        
+                        } 
                         return true;
                     }
                 }
             } else { // If the piece is black
-                if (destY == this.getY() + 1 && getBoard().isOccupied(destX, destY) == 1) {
-                    return true;
-                } else if (destY < 7 && getBoard().getPiece(destX, destY + 1).toString().equals("wp") && getBoard().getPiece(destX, destY + 1).getFirstMove() == getBoard().getRealTurn() - 1) {
-                    
+                if (destY == this.getY() + 1) {
+                    if (getBoard().isOccupied(destX, destY) == 1) {
+                        return true;
+                    }
+                    if (getBoard().getPiece(destX, destY - 1).toString().equals("wp") && getBoard().getPiece(destX, destY - 1).getFirstMove() == getBoard().getRealTurn() - 1) {
+                        if (real) {
+                            getBoard().getTiles()[destY-1][destX].setPiece(null);
+                        } 
+                        return true;
+                    }
                 }
             }
         }
-        return false;
+        
+        if (real && this.putsKingInCheck(destX, destY)) {
+            return false;
+        }
+
+        return true;
     }
 }

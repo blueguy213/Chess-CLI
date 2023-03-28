@@ -30,8 +30,6 @@ public class Bishop extends Piece{
      */
     @Override
     public boolean verifyMove(int destX, int destY, boolean real) {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
 
         int currX = this.getX();
         int currY = this.getY();

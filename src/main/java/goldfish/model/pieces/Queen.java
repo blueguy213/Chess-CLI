@@ -18,8 +18,6 @@ public class Queen extends Piece{
      */
     @Override
     public boolean verifyMove(int destX, int destY, boolean real) {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
 
         // verify if it can move like rook or bishop
         // pretend queen is rook, pretend queen is bishop, see if either is verified

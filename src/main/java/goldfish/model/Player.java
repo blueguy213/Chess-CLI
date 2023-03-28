@@ -177,9 +177,9 @@ public class Player {
                             if (!opponent.isAttacking(destX, destY)) {
                                 // Swap the king back to its original position
                                 king.getBoard().getTiles()[temp.getY()][temp.getX()].setPiece(king);
-                                king.getBoard().getTiles()[king.getY()][king.getX()].setPiece(temp);
                                 king.setX(temp.getX());
                                 king.setY(temp.getY());
+                                king.getBoard().getTiles()[king.getY()][king.getX()].setPiece(temp);
                                 temp.setX(destX);
                                 temp.setY(destY);
                                 return false;
