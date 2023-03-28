@@ -39,7 +39,7 @@ public class King extends Piece {
 
         
         //is destination going to put king in check
-        if ((this.putsKingInCheck(destX, destY))){
+        if (this.isEnemyAttacking(destX, destY)){
             return false;
         }
 

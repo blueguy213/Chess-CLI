@@ -135,8 +135,8 @@ public class RookTests {
         Board startingBoard = new Board();
         Rook testRook = new Rook("t", startingBoard);
         startingBoard.getTiles()[4][3].setPiece(testRook);
-        startingBoard.movePiece(4,6,4,4);
-        startingBoard.movePiece(2,1,2,4);
+        startingBoard.movePiece(4,6,4,4, true);
+        startingBoard.movePiece(2,1,2,4, true);
     
 
 

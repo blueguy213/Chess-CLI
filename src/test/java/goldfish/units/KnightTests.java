@@ -156,9 +156,9 @@ public class KnightTests {
          Board startingBoard = new Board();
          Knight testKnight = new Knight("t", startingBoard);
          startingBoard.getTiles()[4][3].setPiece(testKnight);
-         startingBoard.movePiece(4,6,4,4);
-         startingBoard.movePiece(2,1,2,4);
-         startingBoard.movePiece(3,1,3,3);
+         startingBoard.movePiece(4,6,4,4, true);
+         startingBoard.movePiece(2,1,2,4, true);
+         startingBoard.movePiece(3,1,3,3, true);
     
 
 

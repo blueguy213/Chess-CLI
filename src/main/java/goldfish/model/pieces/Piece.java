@@ -167,14 +167,17 @@ public abstract class Piece {
         int currX = getX();
         int currY = getY();
 
+        System.out.println("currX: " + currX + " currY: " + currY + " destX: " + destX + " destY: " + destY);
+
         Piece oldPiece = getBoard().getPiece(destX, destY);
-        getBoard().movePiece(currX, currY, destX, destY);
+        getBoard().movePiece(currX, currY, destX, destY, false);
         // Check if the king is still in check
 
         if (!getPlayer().isCheck()) {
             getBoard().getTiles()[destY][destX].setPiece(oldPiece);
             return false;
         }
+
         getBoard().getTiles()[destY][destX].setPiece(oldPiece);
         return true;
     }

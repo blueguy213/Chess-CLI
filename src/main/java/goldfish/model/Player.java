@@ -146,6 +146,7 @@ public class Player {
      * @return true if the player is in check, false otherwise
      */ 
     public boolean isCheck() {
+        System.out.println("Checking if " + this.king + " is in check: " + opponent.isAttacking(king.getX(), king.getY()));
         return opponent.isAttacking(king.getX(), king.getY());
     }
 
@@ -163,9 +164,8 @@ public class Player {
                 for (int destY = king.getY() - 1; destY <= king.getY() + 1; destY++) {
                     // Check if the square is on the board
                     if (destX >= 0 && destX < 8 && destY >= 0 && destY < 8) {
+                        System.out.println("destX = " + destX + ", destY = " + destY);
                         // Check if the king can move to the square
-                        System.out.println("Checking if king can move to (" + destX + ", " + destY + ")");
-                        System.out.println("Fake Middle Board: \n" + king.getBoard().toString());
                         if (king.verifyMove(destX, destY, false)) {
                             // Swap the king with the piece at the destination square and save the piece for later
                             Piece temp = king.getBoard().getPiece(destX, destY);
@@ -175,6 +175,10 @@ public class Player {
                             temp.setY(king.getY());
                             king.setX(destX);
                             king.setY(destY);
+
+                            System.out.println("Checking if king can move to (" + destX + ", " + destY + ")");
+                            System.out.println("Fake Middle Board: \n" + king.getBoard().toString());
+
                             // Check if the king is still in check
                             if (!opponent.isAttacking(destX, destY)) {
                                 // Swap the king back to its original position
@@ -244,6 +248,7 @@ public class Player {
 
         for (Piece p : nonKingPieces) {
             if (p.verifyMove(x, y, false)) {
+                System.out.println("Piece " + p + " is attacking (" + x + ", " + y + ") from (" + p.getX() + ", " + p.getY() + ")");
                 return true;
             }
         }

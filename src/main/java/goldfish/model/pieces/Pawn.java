@@ -27,7 +27,7 @@ public class Pawn extends Piece {
     @Override
     public boolean verifyMove(int destX, int destY, boolean real) {
         // Check if the X coordinate is the same or if it is one awadestY
-        if (Math.abs(this.getX() - destX) > 1) {
+        if (Math.abs(this.getX() - destX) > 1 || Math.abs(this.getY() - destY) > 2) {
             return false; // If it is more than one awadestY, it is not a valid move
         } else if (this.getX() == destX) {
             if (this.getColor().equals("w")) { // If the piece is white

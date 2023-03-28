@@ -136,7 +136,7 @@ public class Chess {
                 continue;
             }    
             // Move piece
-            board.movePiece(src_x, src_y, dest_x, dest_y);
+            board.movePiece(src_x, src_y, dest_x, dest_y, true);
             board.incrementTurn();
 
             // Draw board

@@ -47,7 +47,7 @@ public class GameLoopTests {
             } while (!Chess.isValidMove()); // Loop until valid input is given
 
             // Move piece
-            board.movePiece(Chess.src_x, Chess.src_y, Chess.dest_x, Chess.dest_y);
+            board.movePiece(Chess.src_x, Chess.src_y, Chess.dest_x, Chess.dest_y, true);
 
             // Draw board
             testOutput += board;

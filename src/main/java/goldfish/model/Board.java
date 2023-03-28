@@ -138,9 +138,9 @@ public class Board {
      * Move the piece at (x, y) to (newX, newY)
      * @return Player
      */
-    public void movePiece(int x, int y, int newX, int newY) {
-        boolean isPieceNotifiedByMovement = tiles[y][x].getPiece().toString().charAt(1) == 'p' || tiles[y][x].getPiece().toString().charAt(1) == 'K' || tiles[y][x].getPiece().toString().charAt(1) == 'R';
-        if (isPieceNotifiedByMovement) {
+    public void movePiece(int x, int y, int newX, int newY, boolean real) {
+        // boolean isPieceNotifiedByMovement = tiles[y][x].getPiece().toString().charAt(1) == 'p' || tiles[y][x].getPiece().toString().charAt(1) == 'K' || tiles[y][x].getPiece().toString().charAt(1) == 'R';
+        if (real && tiles[y][x].getPiece().toString().charAt(1) == 'p' || tiles[y][x].getPiece().toString().charAt(1) == 'K' || tiles[y][x].getPiece().toString().charAt(1) == 'R') {
             tiles[y][x].getPiece().movement(turn);
         }
         tiles[newY][newX].setPiece(tiles[y][x].getPiece());
