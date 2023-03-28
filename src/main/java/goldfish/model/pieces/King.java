@@ -20,6 +20,7 @@ public class King extends Piece {
      * and that the new square is not under attack by the oppponent.
      * @param destX
      * @param destY
+     * @param real checks if method is being called from the Game loop
      * @return boolean
      */
     @Override

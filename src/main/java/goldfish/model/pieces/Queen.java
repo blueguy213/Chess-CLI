@@ -12,15 +12,14 @@ public class Queen extends Piece{
 
     
     /** 
-     * @param x
-     * @param y
+     * @param destX X value of destination tile
+     * @param destY Y value of destination tile
+     * @param real checks if method is being called from the Game loop
      * @return boolean
      */
     @Override
     public boolean verifyMove(int destX, int destY, boolean real) {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
-
+  
         // verify if it can move like rook or bishop
         // pretend queen is rook, pretend queen is bishop, see if either is verified
         int currX = this.getX();

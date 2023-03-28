@@ -1,6 +1,10 @@
 package goldfish.model.pieces;
 import goldfish.model.Board;
 
+/**
+ * Knight class represents a Knight in the game of chess
+ * @author Sree Kommalapati and Shreeti Patel
+ */
 public class Knight extends Piece {
     public Knight(String color, Board board) {
         super(color, "N", board);
@@ -18,14 +22,13 @@ public class Knight extends Piece {
  
     
     /** 
-     * @param x
-     * @param y
+     * @param destX X value of destination tile
+     * @param destY Y value of destination tile
+     * @param real checks if method is being called from the Game loop
      * @return boolean
      */
     @Override
     public boolean verifyMove(int destX, int destY, boolean real) {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'possibleMoves'");
         // can go to 8 possible spaces each move: 2 in one direction (up/down) or (left/left) and 1 in perpendicular direction
         // its ok if other pieces in it's path
         // System.out.println("destX is " + destX + ", destY is " + destY);
