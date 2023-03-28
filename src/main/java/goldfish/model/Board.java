@@ -232,7 +232,9 @@ public class Board {
         turn++;
         // System.out.println("Turn: " + turn);
     }
-
+    /**
+     * Returns turn
+     */
     public int getRealTurn() {
         return turn;
     }
@@ -243,7 +245,12 @@ public class Board {
     public void gameOver() {
         turn = -1;
     }
-
+    /**
+     * Promotes pawn at tile x,y to another piece
+     * @param src_x 
+     * @param src_y
+     * @param pawnReplacement 
+     */
     public void promote(int src_x, int src_y, Piece pawnReplacement) {
         tiles[src_y][src_x].setPiece(null);
         if (src_y == 1) {

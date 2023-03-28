@@ -16,6 +16,7 @@ public class King extends Piece {
     }
     
     /** 
+     * Return true if the move is valid for a King
      * Verifies that x and y are within one square of the current position but not both identical
      * and that the new square is not under attack by the oppponent.
      * @param destX

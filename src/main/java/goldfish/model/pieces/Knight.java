@@ -2,7 +2,7 @@ package goldfish.model.pieces;
 import goldfish.model.Board;
 
 /**
- * Knight class represents a Knight in the game of chess
+ * Knight class represents a knight in the game of chess
  * @author Sree Kommalapati and Shreeti Patel
  */
 public class Knight extends Piece {
@@ -22,6 +22,7 @@ public class Knight extends Piece {
  
     
     /** 
+     * Return true if the move is valid for a Knight
      * @param destX X value of destination tile
      * @param destY Y value of destination tile
      * @param real checks if method is being called from the Game loop

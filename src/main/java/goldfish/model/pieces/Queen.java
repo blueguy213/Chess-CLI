@@ -12,6 +12,7 @@ public class Queen extends Piece{
 
     
     /** 
+     * Return true if the move is valid for a Queen
      * @param destX X value of destination tile
      * @param destY Y value of destination tile
      * @param real checks if method is being called from the Game loop

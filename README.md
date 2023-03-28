@@ -69,7 +69,7 @@ ________________________________________________________________________________
 
  - To build the docs for the chess, model, and pieces packages, which have all the java source code:
  - Navigate to chessrepo/src/main/java and execute the following command:
-# javadoc -d doc goldfish.chess goldfish.model goldfish.model.pieces
+# javadoc -d docs goldfish.chess goldfish.model goldfish.model.pieces
 
  - To build the docs for the tests written using JUnit, which show how the tests verify the program:
  - Navigate to chessrepo/test/java and execute the following command:

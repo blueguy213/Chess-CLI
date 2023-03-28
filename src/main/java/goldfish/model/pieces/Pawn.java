@@ -18,7 +18,7 @@ public class Pawn extends Piece {
     }
 
     /** 
-     * Return true if the move is valid for a pawn
+     * Return true if the move is valid for a Pawn
      * @param x x coordinate of the piece
      * @param y y coordinate of the piece
      * @param real checks if method is being called from the Game loop
